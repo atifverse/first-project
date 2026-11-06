@@ -1,148 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Yeh line phone me sahi scaling ke liye sabse zaroori hai -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <title>Mohammad Atif | Portfolio & Tech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammad Atif | Developer & Tech Creator</title>
+  
+  <!-- SEO Meta Tags taaki search aur share par sahi preview dikhe -->
+  <meta name="description" content="Portfolio of Mohammad Atif - Tech enthusiast, BCA student, developer, and digital content creator.">
+  <meta name="author" content="Mohammad Atif">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    /* CSS: Sabhi screen sizes par design handle karne ke liye */
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(22, 27, 34, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #38bdf8;
+      --accent: #818cf8;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
 
     body {
-      background-color: #0d1117;
-      color: #c9d1d9;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.12) 0px, transparent 50%);
+      color: var(--text);
       line-height: 1.6;
-      padding: 20px;
+      padding: 24px 16px;
       display: flex;
       justify-content: center;
+      min-height: 100vh;
     }
 
     .container {
       width: 100%;
-      max-width: 650px; /* Phone aur desktop dono par compact aur clean dikhega */
-      padding: 20px 0;
+      max-width: 680px;
     }
 
+    /* Hero / Profile */
     header {
       text-align: center;
-      margin-bottom: 30px;
+      padding: 30px 10px 20px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 18px;
     }
 
     .avatar {
-      width: 100px;
-      height: 100px;
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
-      background: linear-gradient(135deg, #238636, #2ea043);
+      background: linear-gradient(135deg, #0284c7, #6366f1);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 36px;
-      font-weight: bold;
-      color: white;
-      margin: 0 auto 15px;
+      font-size: 42px;
+      font-weight: 700;
+      color: #ffffff;
+      box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.5);
+      border: 3px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34, 197, 94, 0.1);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #22c55e;
     }
 
     h1 {
-      font-size: 24px;
-      color: #f0f6fc;
-      margin-bottom: 5px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+      background: linear-gradient(120deg, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    p.subtitle {
-      color: #8b949e;
-      font-size: 14px;
+    .role {
+      color: var(--primary);
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 10px;
     }
 
-    .section {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 12px;
-      padding: 20px;
+    .bio {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 22px;
       margin-bottom: 20px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
     }
 
-    .section h2 {
+    .card h2 {
       font-size: 18px;
-      color: #58a6ff;
-      margin-bottom: 12px;
-      border-bottom: 1px solid #21262d;
-      padding-bottom: 8px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .tags {
+    .card h2 i {
+      color: var(--primary);
+      font-size: 16px;
+    }
+
+    /* Skills */
+    .skills-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
-    .tag {
-      background: #21262d;
-      border: 1px solid #30363d;
-      color: #7ee787;
-      padding: 4px 10px;
-      border-radius: 20px;
+    .skill-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .skill-item:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Projects */
+    .project-item {
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-item:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 15px;
+      color: #f8fafc;
+    }
+
+    .project-desc {
       font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Links / Buttons */
+    .links-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 480px) {
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      background-color: #238636;
-      color: white;
-      padding: 12px;
-      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
-      margin-top: 10px;
-      transition: background 0.2s;
+      font-size: 14px;
+      transition: all 0.2s ease;
     }
 
-    .btn:hover {
-      background-color: #2ea043;
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      box-shadow: 0 8px 20px -6px rgba(2, 132, 199, 0.4);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 30px;
+      padding-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <!-- Header Section -->
+    
+    <!-- Hero / Profile -->
     <header>
-      <div class="avatar">A</div>
+      <div class="avatar-wrapper">
+        <div class="avatar">A</div>
+      </div>
+      <div class="status-badge">
+        <span class="pulse"></span> Open for collaborations
+      </div>
       <h1>Mohammad Atif</h1>
-      <p class="subtitle">Tech Enthusiast • BCA Student • Content Creator</p>
+      <p class="role">Developer & Digital Content Creator</p>
+      <p class="bio">Passionate about programming, building creative tech tools, and exploring modern software solutions.</p>
     </header>
 
-    <!-- About Section -->
-    <div class="section">
-      <h2>About Me</h2>
-      <p>Building creative tech projects, exploring programming, and sharing modern digital workflows.</p>
-    </div>
-
-    <!-- Skills / Projects Section -->
-    <div class="section">
-      <h2>Skills & Focus</h2>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">C Programming</span>
-        <span class="tag">Web Design</span>
-        <span class="tag">Digital Content</span>
+    <!-- Skills -->
+    <div class="card">
+      <h2><i class="fa-solid fa-code"></i> Tech Stack & Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-item"><i class="fa-brands fa-python" style="color: #38bdf8;"></i> Python</div>
+        <div class="skill-item"><i class="fa-solid fa-terminal" style="color: #a855f7;"></i> C Programming</div>
+        <div class="skill-item"><i class="fa-brands fa-html5" style="color: #f97316;"></i> Web Development</div>
+        <div class="skill-item"><i class="fa-solid fa-brain" style="color: #ec4899;"></i> AI Workflows</div>
+        <div class="skill-item"><i class="fa-solid fa-video" style="color: #22c55e;"></i> Video & Content Creation</div>
       </div>
     </div>
 
-    <!-- Links / Action Section -->
-    <div class="section">
-      <h2>Connect</h2>
-      <a href="https://instagram.com" target="_blank" class="btn">Instagram / Socials</a>
-      <a href="mailto:contact@example.com" class="btn" style="background-color: #21262d; border: 1px solid #30363d; margin-top: 10px;">Send an Email</a>
+    <!-- Featured Projects -->
+    <div class="card">
+      <h2><i class="fa-solid fa-layer-group"></i> Highlights & Projects</h2>
+      
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-title">Smart Python Scripts</span>
+          <i class="fa-solid fa-arrow-trend-up" style="color: var(--primary); font-size: 12px;"></i>
+        </div>
+        <p class="project-desc">Custom automation and intelligent assistant scripts built using Python and modern APIs.</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-title">Digital Channels & Brands</span>
+          <i class="fa-solid fa-check" style="color: #4ade80; font-size: 12px;"></i>
+        </div>
+        <p class="project-desc">Creating impactful tech videos, hardware tips, and coding guides across social platforms.</p>
+      </div>
     </div>
+
+    <!-- Social & Links -->
+    <div class="card">
+      <h2><i class="fa-solid fa-paper-plane"></i> Connect With Me</h2>
+      <div class="links-grid">
+        <a href="https://github.com/atifverse" target="_blank" class="btn btn-secondary">
+          <i class="fa-brands fa-github"></i> GitHub Profile
+        </a>
+        <a href="https://instagram.com" target="_blank" class="btn btn-secondary">
+          <i class="fa-brands fa-instagram" style="color: #f43f5e;"></i> Instagram
+        </a>
+        <a href="mailto:example@gmail.com" class="btn btn-primary" style="grid-column: 1 / -1;">
+          <i class="fa-solid fa-envelope"></i> Get In Touch via Email
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 Mohammad Atif • Hosted on GitHub Pages
+    </footer>
+
   </div>
 
 </body>
