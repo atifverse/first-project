@@ -3,22 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohammad Atif | Developer & Tech Creator</title>
+  <title>Atifex | Master Coding, Digital Skills & Internet Economy</title>
+  <meta name="description" content="Next-gen tech learning platform. Learn Python, Web Dev, Digital Marketing, and Modern Internet Skills.">
   
-  <meta name="description" content="Portfolio & Interactive Learning Hub by Mohammad Atif.">
-  <meta name="author" content="Mohammad Atif">
-  
-  <!-- FontAwesome Icons -->
+  <!-- FontAwesome & Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   
   <style>
     :root {
       --bg: #090d16;
-      --card-bg: rgba(22, 27, 34, 0.7);
-      --card-border: rgba(255, 255, 255, 0.08);
+      --surface: #111827;
+      --card-bg: rgba(17, 24, 39, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
       --primary: #38bdf8;
-      --accent: #818cf8;
-      --text: #f1f5f9;
+      --primary-glow: rgba(56, 189, 248, 0.25);
+      --accent: #6366f1;
+      --text: #f8fafc;
       --text-muted: #94a3b8;
     }
 
@@ -26,605 +29,661 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
     body {
       background-color: var(--bg);
       background-image: 
-        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.12) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.12) 0px, transparent 50%);
       color: var(--text);
       line-height: 1.6;
-      padding: 24px 16px;
-      display: flex;
-      justify-content: center;
       min-height: 100vh;
     }
 
-    .container {
-      width: 100%;
-      max-width: 680px;
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    /* Hero / Profile */
-    header {
-      text-align: center;
-      padding: 30px 10px 20px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
+      text-decoration: none;
     }
 
-    .avatar-wrapper {
-      width: 110px;
-      height: 110px;
-      margin: 0 auto 18px;
-    }
-
-    .avatar {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
       background: linear-gradient(135deg, #0284c7, #6366f1);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 42px;
-      font-weight: 700;
-      color: #ffffff;
-      box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.5);
-      border: 3px solid rgba(255, 255, 255, 0.15);
+      font-size: 16px;
+      color: #fff;
     }
 
-    .status-badge {
+    .nav-cta {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 16px 80px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 20px 0 40px;
+    }
+
+    .badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(34, 197, 94, 0.1);
-      color: #4ade80;
-      border: 1px solid rgba(34, 197, 94, 0.25);
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      margin-bottom: 12px;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 18px;
     }
 
-    .pulse {
-      width: 7px;
-      height: 7px;
-      background-color: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #22c55e;
-    }
-
-    h1 {
-      font-size: 28px;
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 46px);
       font-weight: 800;
-      margin-bottom: 6px;
-      background: linear-gradient(120deg, #ffffff, #cbd5e1);
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(120deg, #38bdf8, #818cf8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .role {
-      color: var(--primary);
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-
-    .bio {
+    .hero p {
       color: var(--text-muted);
-      font-size: 14.5px;
-      max-width: 520px;
-      margin: 0 auto;
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto 28px;
     }
 
-    /* Cards */
-    .card {
+    /* Track Filter */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary);
+      color: #04101e;
+      border-color: var(--primary);
+    }
+
+    /* Course Cards Grid */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 50px;
+    }
+
+    .course-card {
       background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--card-border);
+      border: 1px solid var(--border);
       border-radius: 16px;
       padding: 22px;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-    }
-
-    .card h2 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .card-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-
-    /* Interactive Skills Grid */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .skill-btn {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #e2e8f0;
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-size: 13.5px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
       cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .skill-btn:hover {
-      border-color: var(--primary);
-      background: rgba(56, 189, 248, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .skill-btn i {
-      font-size: 15px;
-    }
-
-    /* Modal / Pop-up Styles */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(6px);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      padding: 16px;
-    }
-
-    .modal-content {
-      background: #111827;
-      border: 1px solid #374151;
-      border-radius: 16px;
-      width: 100%;
-      max-width: 520px;
-      padding: 24px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
       position: relative;
-      animation: modalFadeIn 0.25s ease-out;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    @keyframes modalFadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    .course-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     }
 
-    .modal-header {
+    .card-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #1f2937;
-      padding-bottom: 12px;
       margin-bottom: 14px;
     }
 
-    .modal-header h3 {
-      font-size: 20px;
-      color: #f9fafb;
+    .icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
-      gap: 10px;
-    }
-
-    .close-btn {
-      background: transparent;
-      border: none;
-      color: #9ca3af;
+      justify-content: center;
       font-size: 20px;
-      cursor: pointer;
+      background: rgba(255, 255, 255, 0.05);
     }
 
-    .close-btn:hover {
-      color: #ffffff;
+    .course-level {
+      font-size: 11px;
+      font-weight: 600;
+      color: #4ade80;
+      background: rgba(34, 197, 94, 0.1);
+      padding: 3px 8px;
+      border-radius: 6px;
     }
 
-    .modal-body h4 {
-      font-size: 14px;
-      color: var(--primary);
-      margin: 12px 0 6px;
-    }
-
-    .roadmap-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .roadmap-list li {
-      position: relative;
-      padding-left: 20px;
-      font-size: 13.5px;
-      color: #d1d5db;
+    .course-card h3 {
+      font-size: 17px;
+      color: #fff;
       margin-bottom: 6px;
     }
 
-    .roadmap-list li::before {
-      content: "✔";
-      position: absolute;
-      left: 0;
-      color: #38bdf8;
-      font-size: 12px;
-    }
-
-    .code-preview {
-      background: #030712;
-      border: 1px solid #1f2937;
-      border-radius: 8px;
-      padding: 10px;
-      font-family: monospace;
-      font-size: 12.5px;
-      color: #34d399;
-      margin-top: 6px;
-      overflow-x: auto;
-    }
-
-    .modal-action-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      background: linear-gradient(135deg, #0284c7, #2563eb);
-      color: white;
-      padding: 10px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
+    .course-card p {
       font-size: 13px;
-      margin-top: 18px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
     }
 
-    /* Projects & Connect */
-    .project-item {
-      padding: 14px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      margin-bottom: 12px;
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 12px;
     }
 
-    .project-header {
+    /* Live Interactive Code Playground */
+    .playground-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 50px;
+    }
+
+    .playground-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 4px;
+      margin-bottom: 16px;
     }
 
-    .project-title {
-      font-weight: 600;
-      font-size: 15px;
-      color: #f8fafc;
+    .playground-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .project-desc {
+    .run-btn {
+      background: #22c55e;
+      color: #032512;
+      border: none;
+      padding: 7px 16px;
+      border-radius: 8px;
+      font-weight: 700;
       font-size: 13px;
-      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .links-grid {
+    .playground-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
 
-    @media (max-width: 480px) {
-      .links-grid {
+    @media (max-width: 600px) {
+      .playground-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    .btn {
-      display: flex;
-      align-items: center;
+    .editor-box textarea {
+      width: 100%;
+      height: 180px;
+      background: #040810;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      resize: vertical;
+      outline: none;
+    }
+
+    .preview-box iframe {
+      width: 100%;
+      height: 180px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    /* Learning Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 200;
       justify-content: center;
-      gap: 9px;
-      padding: 13px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      transition: all 0.2s ease;
+      align-items: center;
+      padding: 16px;
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      color: #e2e8f0;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      max-width: 540px;
+      width: 100%;
+      padding: 24px;
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
-      transform: translateY(-2px);
+    .modal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #0284c7, #2563eb);
-      color: #ffffff;
+    .close-modal {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 24px;
+      cursor: pointer;
     }
 
+    .roadmap-track {
+      list-style: none;
+      margin: 14px 0;
+    }
+
+    .roadmap-track li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 13.5px;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+    }
+
+    .roadmap-track li::before {
+      content: "➔";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      font-size: 12px;
-      color: #64748b;
-      margin-top: 30px;
-      padding-bottom: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 30px;
     }
   </style>
 </head>
 <body>
 
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#" class="brand">
+      <div class="brand-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+      <span>Atifex</span>
+    </a>
+    <a href="#playground" class="nav-cta"><i class="fa-solid fa-play"></i> Try Code Editor</a>
+  </nav>
+
   <div class="container">
-    
-    <!-- Hero / Profile -->
-    <header>
-      <div class="avatar-wrapper">
-        <div class="avatar">A</div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="badge"><i class="fa-solid fa-bolt"></i> Future of Internet Learning</div>
+      <h1>Empowering Everyone with <span>Real-World Skills</span></h1>
+      <p>From high-performance programming to digital marketing and AI automation—learn practical internet skills with interactive paths.</p>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="tab-btn active" onclick="filterCourses('all', this)">All Disciplines</button>
+        <button class="tab-btn" onclick="filterCourses('coding', this)">Programming</button>
+        <button class="tab-btn" onclick="filterCourses('marketing', this)">Digital Growth</button>
+        <button class="tab-btn" onclick="filterCourses('tech', this)">Modern Tech & AI</button>
       </div>
-      <div class="status-badge">
-        <span class="pulse"></span> Open for collaborations
-      </div>
-      <h1>Mohammad Atif</h1>
-      <p class="role">Developer & Digital Content Creator</p>
-      <p class="bio">Passionate about programming, building creative tech tools, and helping others learn code easily.</p>
     </header>
 
-    <!-- Interactive Learning / Tech Stack -->
-    <div class="card">
-      <h2><i class="fa-solid fa-graduation-cap"></i> Interactive Learn Hub</h2>
-      <p class="card-subtitle">Kisi bhi language par click karein uska roadmap aur sample code dekhne ke liye:</p>
+    <!-- Course & Skill Tracks -->
+    <div class="courses-grid" id="coursesGrid">
       
-      <div class="skills-grid">
-        <button class="skill-btn" onclick="openLearnModal('python')">
-          <i class="fa-brands fa-python" style="color: #38bdf8;"></i> Python
-        </button>
-        <button class="skill-btn" onclick="openLearnModal('c')">
-          <i class="fa-solid fa-terminal" style="color: #a855f7;"></i> C Language
-        </button>
-        <button class="skill-btn" onclick="openLearnModal('cpp')">
-          <i class="fa-solid fa-code" style="color: #60a5fa;"></i> C++
-        </button>
-        <button class="skill-btn" onclick="openLearnModal('javascript')">
-          <i class="fa-brands fa-js" style="color: #facc15;"></i> JavaScript
-        </button>
-        <button class="skill-btn" onclick="openLearnModal('web')">
-          <i class="fa-brands fa-html5" style="color: #f97316;"></i> HTML/CSS
-        </button>
-        <button class="skill-btn" onclick="openLearnModal('java')">
-          <i class="fa-brands fa-java" style="color: #ef4444;"></i> Java
-        </button>
-        <button class="skill-btn" onclick="openLearnModal('ai')">
-          <i class="fa-solid fa-brain" style="color: #ec4899;"></i> AI & APIs
-        </button>
-      </div>
-    </div>
-
-    <!-- Highlights & Projects -->
-    <div class="card">
-      <h2><i class="fa-solid fa-layer-group"></i> Highlights & Projects</h2>
-      
-      <div class="project-item">
-        <div class="project-header">
-          <span class="project-title">Smart Python Scripts</span>
-          <i class="fa-solid fa-arrow-trend-up" style="color: var(--primary); font-size: 12px;"></i>
+      <!-- Python Track -->
+      <div class="course-card" data-category="coding" onclick="openSkill('python')">
+        <div>
+          <div class="card-top">
+            <div class="icon-box" style="color: #38bdf8;"><i class="fa-brands fa-python"></i></div>
+            <span class="course-level">Beginner to Pro</span>
+          </div>
+          <h3>Python & Automation</h3>
+          <p>Master syntax, problem solving, data scripts, and smart bots from ground up.</p>
         </div>
-        <p class="project-desc">Custom automation and intelligent assistant scripts built using Python and modern APIs.</p>
-      </div>
-
-      <div class="project-item">
-        <div class="project-header">
-          <span class="project-title">Digital Channels & Brands</span>
-          <i class="fa-solid fa-check" style="color: #4ade80; font-size: 12px;"></i>
+        <div class="card-footer">
+          <span>Explore Syllabus</span>
+          <i class="fa-solid fa-arrow-right"></i>
         </div>
-        <p class="project-desc">Creating impactful tech videos, hardware tips, and coding guides across social platforms.</p>
       </div>
+
+      <!-- Web Dev Track -->
+      <div class="course-card" data-category="coding" onclick="openSkill('web')">
+        <div>
+          <div class="card-top">
+            <div class="icon-box" style="color: #f97316;"><i class="fa-brands fa-html5"></i></div>
+            <span class="course-level">Core Foundation</span>
+          </div>
+          <h3>Full-Stack Web Dev</h3>
+          <p>HTML5, Modern Responsive CSS, JavaScript DOM, and full deployment on public servers.</p>
+        </div>
+        <div class="card-footer">
+          <span>Explore Syllabus</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+
+      <!-- Digital Marketing Track -->
+      <div class="course-card" data-category="marketing" onclick="openSkill('marketing')">
+        <div>
+          <div class="card-top">
+            <div class="icon-box" style="color: #10b981;"><i class="fa-solid fa-chart-line"></i></div>
+            <span class="course-level">Career Track</span>
+          </div>
+          <h3>Digital Marketing & SEO</h3>
+          <p>Learn Search Engine Optimization, Google ranking, Meta Ads, and organic content growth.</p>
+        </div>
+        <div class="card-footer">
+          <span>Explore Syllabus</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+
+      <!-- Content & Media Track -->
+      <div class="course-card" data-category="marketing" onclick="openSkill('media')">
+        <div>
+          <div class="card-top">
+            <div class="icon-box" style="color: #ef4444;"><i class="fa-solid fa-video"></i></div>
+            <span class="course-level">High Demand</span>
+          </div>
+          <h3>Content Creation & Branding</h3>
+          <p>Short-form video editing, visual storytelling, personal branding, and audience retention.</p>
+        </div>
+        <div class="card-footer">
+          <span>Explore Syllabus</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+
+      <!-- AI & APIs Track -->
+      <div class="course-card" data-category="tech" onclick="openSkill('ai')">
+        <div>
+          <div class="card-top">
+            <div class="icon-box" style="color: #a855f7;"><i class="fa-solid fa-robot"></i></div>
+            <span class="course-level">Next-Gen</span>
+          </div>
+          <h3>AI Workflows & APIs</h3>
+          <p>Building automated apps using generative AI SDKs, prompt architecture, and tools.</p>
+        </div>
+        <div class="card-footer">
+          <span>Explore Syllabus</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+
+      <!-- C / Fundamentals Track -->
+      <div class="course-card" data-category="coding" onclick="openSkill('c')">
+        <div>
+          <div class="card-top">
+            <div class="icon-box" style="color: #64748b;"><i class="fa-solid fa-terminal"></i></div>
+            <span class="course-level">CS Fundamentals</span>
+          </div>
+          <h3>C & Computer Logic</h3>
+          <p>Memory structures, pointers, discrete logic, and the roots of computer science.</p>
+        </div>
+        <div class="card-footer">
+          <span>Explore Syllabus</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Social & Links -->
-    <div class="card">
-      <h2><i class="fa-solid fa-paper-plane"></i> Connect With Me</h2>
-      <div class="links-grid">
-        <a href="https://github.com/atifverse" target="_blank" class="btn btn-secondary">
-          <i class="fa-brands fa-github"></i> GitHub Profile
-        </a>
-        <a href="https://instagram.com" target="_blank" class="btn btn-secondary">
-          <i class="fa-brands fa-instagram" style="color: #f43f5e;"></i> Instagram
-        </a>
-        <a href="mailto:contact@atifverse.com" class="btn btn-primary" style="grid-column: 1 / -1;">
-          <i class="fa-solid fa-envelope"></i> Get In Touch via Email
-        </a>
+    <!-- Live Code Playground Section -->
+    <section class="playground-section" id="playground">
+      <div class="playground-header">
+        <h2><i class="fa-solid fa-code" style="color: var(--primary);"></i> In-Browser Live HTML Playground</h2>
+        <button class="run-btn" onclick="executeLiveCode()"><i class="fa-solid fa-play"></i> Run Code</button>
       </div>
-    </div>
+      <div class="playground-grid">
+        <div class="editor-box">
+          <textarea id="codeEditor" spellcheck="false">&lt;h2 style="color: #0284c7;"&gt;Welcome to Atifex!&lt;/h2&gt;
+&lt;p style="color: #334155;"&gt;Edit this text and click Run Code.&lt;/p&gt;
+&lt;button style="background: #0284c7; color: white; border: none; padding: 8px 14px; border-radius: 6px;"&gt;Click Me&lt;/button&gt;</textarea>
+        </div>
+        <div class="preview-box">
+          <iframe id="liveFrame"></iframe>
+        </div>
+      </div>
+    </section>
 
+    <!-- Footer -->
     <footer>
-      © 2026 Mohammad Atif • Hosted on GitHub Pages
+      <p>© 2026 <strong>Atifex Platform</strong>. Founded by Mohammad Atif.</p>
+      <p style="font-size: 12px; margin-top: 6px;">Empowering students and creators with practical internet trades.</p>
     </footer>
 
   </div>
 
-  <!-- Interactive Modal / Pop-up -->
-  <div id="learnModal" class="modal-overlay" onclick="closeOnOutside(event)">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 id="modalTitle">Language Title</h3>
-        <button class="close-btn" onclick="closeLearnModal()">&times;</button>
+  <!-- Interactive Curriculum Modal -->
+  <div class="modal-overlay" id="skillModal" onclick="closeModalOutside(event)">
+    <div class="modal-box">
+      <div class="modal-top">
+        <h3 id="modalTitle" style="color: #fff; font-size: 19px;">Syllabus Overview</h3>
+        <button class="close-modal" onclick="closeModal()">&times;</button>
       </div>
-      <div class="modal-body">
-        <p id="modalDesc" style="font-size: 13.5px; color: #9ca3af; margin-bottom: 10px;"></p>
-        
-        <h4>🚀 Recommended Beginner Roadmap</h4>
-        <ul id="modalRoadmap" class="roadmap-list"></ul>
+      <p id="modalDesc" style="color: var(--text-muted); font-size: 13.5px;"></p>
+      
+      <h4 style="color: var(--primary); font-size: 14px; margin-top: 16px;">Core Learning Milestones</h4>
+      <ul class="roadmap-track" id="modalList"></ul>
 
-        <h4>💻 Quick Start Code</h4>
-        <pre id="modalCode" class="code-preview"></pre>
-
-        <a id="modalDocsBtn" href="#" target="_blank" class="modal-action-btn">Free Documentation & Tutorials</a>
+      <div style="margin-top: 20px;">
+        <a id="modalDocsLink" href="#" target="_blank" class="nav-cta" style="display: block; text-align: center;">Official Reference Documentation</a>
       </div>
     </div>
   </div>
 
   <script>
-    // Data store for languages and interactive learning
-    const languageData = {
+    // Live Playground Logic
+    function executeLiveCode() {
+      const code = document.getElementById("codeEditor").value;
+      const frame = document.getElementById("liveFrame").contentWindow.document;
+      frame.open();
+      frame.write(code);
+      frame.close();
+    }
+    // Run initial code on load
+    window.onload = executeLiveCode;
+
+    // Filter Logic
+    function filterCourses(category, btn) {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const cards = document.querySelectorAll(".course-card");
+      cards.forEach(card => {
+        if (category === "all" || card.getAttribute("data-category") === category) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // Modal Curriculum Data
+    const skillData = {
       python: {
-        title: "Python Learning Hub",
-        desc: "Python sabse beginner-friendly aur powerful language hai jo automation, web dev, aur AI me use hoti hai.",
-        roadmap: [
-          "Variables, Data Types (int, str, list, dict)",
-          "Conditionals (if-else) & Loops (for, while)",
-          "Functions, Modules & File Handling",
-          "Working with APIs & Automation scripts"
+        title: "Python & Automation Engineering",
+        desc: "Python internet scripting, data structures, and automation bots sikhne ka core blueprint.",
+        milestones: [
+          "Syntax, Core Data Structures (Lists, Sets, Dictionaries)",
+          "Control Logic, List Comprehensions & Error Handling",
+          "Working with APIs, JSON, and Web Scrapers",
+          "Building Automated Bot Assistants"
         ],
-        code: `# Hello World in Python
-name = "Atif"
-print(f"Welcome to Python learning, {name}!")`,
-        docs: "https://www.w3schools.com/python/"
-      },
-      c: {
-        title: "C Language Mastery",
-        desc: "C language programming ka base hai, jisse memory management aur core computer concepts clear hote hain.",
-        roadmap: [
-          "Syntax, Variables & Data Types",
-          "Control Flow (if, switch) & Loops",
-          "Arrays, Strings & Functions",
-          "Pointers & Memory Allocation (malloc)"
-        ],
-        code: `#include <stdio.h>
-
-int main() {
-    printf("Welcome to C Programming!\\n");
-    return 0;
-}`,
-        docs: "https://www.w3schools.com/c/"
-      },
-      cpp: {
-        title: "C++ Programming",
-        desc: "C++ fast performance aur Object-Oriented Programming (OOP) sikhne ke liye best choice hai.",
-        roadmap: [
-          "C++ Basics & I/O (cin, cout)",
-          "OOP Concepts (Classes, Objects, Inheritance)",
-          "Standard Template Library (STL - Vector, Map)",
-          "Data Structures & Problem Solving"
-        ],
-        code: `#include <iostream>
-using namespace std;
-
-int main() {
-    cout << "Welcome to Modern C++!" << endl;
-    return 0;
-}`,
-        docs: "https://www.w3schools.com/cpp/"
-      },
-      javascript: {
-        title: "JavaScript Hub",
-        desc: "Internet ki sabse popular language, jisse websites interactive banti hain.",
-        roadmap: [
-          "Variables (let, const), Data Types",
-          "DOM Manipulation (Buttons, Events click)",
-          "ES6 Features (Arrow functions, Promises)",
-          "Async/Await & Fetching APIs"
-        ],
-        code: `// Interactive greeting
-function welcome(user) {
-  console.log(\`Hello \${user}, welcome to JavaScript!\`);
-}
-welcome("Atif");`,
-        docs: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+        docs: "https://docs.python.org/3/"
       },
       web: {
-        title: "Web Development (HTML/CSS)",
-        desc: "Websites ka structure aur styling design karne ke basic building blocks.",
-        roadmap: [
-          "HTML5 Semantic Tags (header, nav, section)",
-          "CSS Flexbox & CSS Grid for Layouts",
-          "Responsive Design (Mobile Viewport & Media Queries)",
-          "Clean Dark/Light UI Styling"
+        title: "Modern Web Systems",
+        desc: "Web applications create karna, design responsive banana aur cloud hosting seekhna.",
+        milestones: [
+          "HTML5 Semantic Architecture & SEO Meta Rules",
+          "Modern CSS Flexbox, Grid & Clean Dark Theming",
+          "JavaScript Async Logic, Events & DOM Manipulation",
+          "Version Control with Git & Production Deployments"
         ],
-        code: `<div class="box">
-  <h1>Responsive Web Design</h1>
-  <p>Learn HTML & CSS easily.</p>
-</div>`,
-        docs: "https://www.w3schools.com/html/"
+        docs: "https://developer.mozilla.org/en-US/"
       },
-      java: {
-        title: "Java Programming",
-        desc: "Enterprise applications aur Android development me sabse zyada istemal hone wali language.",
-        roadmap: [
-          "Java Syntax & Basics",
-          "OOP Principles (Encapsulation, Polymorphism)",
-          "Collections Framework (ArrayList, HashMap)",
-          "Exception Handling & Multi-threading"
+      marketing: {
+        title: "Digital Growth & Organic Reach",
+        desc: "Internet traffic master karna, Google rank 1 par aana aur campaigns optimize karna.",
+        milestones: [
+          "Keyword Architecture & Search Engine Optimization (SEO)",
+          "Google Search Console Indexing & Technical Audits",
+          "High-Conversion Copywriting & Funnel Systems",
+          "Paid Ads Targeting (Meta & Search Engine Ads)"
         ],
-        code: `public class Main {
-    public static void main(String[] args) {
-        System.out.println("Welcome to Java Programming!");
-    }
-}`,
-        docs: "https://www.w3schools.com/java/"
+        docs: "https://developers.google.com/search/docs"
+      },
+      media: {
+        title: "Digital Media & Brand Engineering",
+        desc: "Content creation pipeline, modern storytelling aur digital presence build karna.",
+        milestones: [
+          "Retention-Driven Scripting for Short & Long Videos",
+          "Professional Editing Pacing & Visual Grading",
+          "Thumbnail Architecture & Click-Through Rate (CTR)",
+          "Multi-Platform Distribution (YouTube, Instagram)"
+        ],
+        docs: "https://creatoracademy.youtube.com/"
       },
       ai: {
-        title: "AI Workflows & APIs",
-        desc: "Modern AI models aur APIs ko apne apps aur scripts ke sath connect karna.",
-        roadmap: [
-          "Prompt Engineering Basics",
-          "API Keys & Authentication (REST APIs)",
-          "Python AI SDKs (Gemini API, OpenAI)",
-          "Building automated AI assistants"
+        title: "Artificial Intelligence Architecture",
+        desc: "State-of-the-art AI models ko software solutions ke sath integrate karna.",
+        milestones: [
+          "Prompt Engineering & Context Design",
+          "Integrating AI APIs (Gemini, Claude, OpenAI)",
+          "Building Knowledge Assistants & Chat Agents",
+          "Deploying Cloud AI Integrations"
         ],
-        code: `# AI Workflow concept
-import google.generativeai as genai
-# Configure API & Generate Content Easily`,
         docs: "https://ai.google.dev/"
+      },
+      c: {
+        title: "Computer Logic & C Programming",
+        desc: "Computer hardware kaise kaam karta hai aur low-level memory control master karna.",
+        milestones: [
+          "Data Types, Bitwise Logic & Control Flow",
+          "Memory Models, Pointers & Array Allocation",
+          "Data Structures: Linked Lists, Stacks, Queues",
+          "Algorithmic Thinking & Complexity Analysis"
+        ],
+        docs: "https://en.cppreference.com/w/c"
       }
     };
 
-    function openLearnModal(langKey) {
-      const data = languageData[langKey];
+    function openSkill(id) {
+      const data = skillData[id];
       if (!data) return;
 
-      document.getElementById('modalTitle').innerText = data.title;
-      document.getElementById('modalDesc').innerText = data.desc;
+      document.getElementById("modalTitle").innerText = data.title;
+      document.getElementById("modalDesc").innerText = data.desc;
       
-      const roadmapEl = document.getElementById('modalRoadmap');
-      roadmapEl.innerHTML = '';
-      data.roadmap.forEach(item => {
-        const li = document.createElement('li');
-        li.innerText = item;
-        roadmapEl.appendChild(li);
+      const list = document.getElementById("modalList");
+      list.innerHTML = "";
+      data.milestones.forEach(m => {
+        const li = document.createElement("li");
+        li.innerText = m;
+        list.appendChild(li);
       });
 
-      document.getElementById('modalCode').innerText = data.code;
-      document.getElementById('modalDocsBtn').href = data.docs;
-
-      document.getElementById('learnModal').style.display = 'flex';
+      document.getElementById("modalDocsLink").href = data.docs;
+      document.getElementById("skillModal").style.display = "flex";
     }
 
-    function closeLearnModal() {
-      document.getElementById('learnModal').style.display = 'none';
+    function closeModal() {
+      document.getElementById("skillModal").style.display = "none";
     }
 
-    function closeOnOutside(event) {
-      if (event.target.id === 'learnModal') {
-        closeLearnModal();
-      }
+    function closeModalOutside(e) {
+      if (e.target.id === "skillModal") closeModal();
     }
   </script>
 
