@@ -237,7 +237,7 @@
       padding-top: 12px;
     }
 
-    /* Smart Real Interactive Playground */
+    /* Reliable Cloud Multi-Compiler */
     .playground-section {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -516,11 +516,6 @@
       transition: all 0.2s;
     }
 
-    .quiz-btn:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--primary);
-    }
-
     .quiz-btn.correct {
       background: rgba(34, 197, 94, 0.2) !important;
       border-color: #22c55e !important;
@@ -674,10 +669,10 @@
           <h2><i class="fa-solid fa-laptop-code" style="color: var(--primary);"></i> Real Multi-Language Compiler & Runner</h2>
           <div class="playground-controls">
             <select class="lang-select" id="compilerSelect" onchange="switchLanguage()">
-              <option value="c">C (GCC 9.2.0)</option>
-              <option value="python">Python (3.8.1)</option>
-              <option value="cpp">C++ (GCC 9.2.0)</option>
-              <option value="java">Java (OpenJDK 13)</option>
+              <option value="c">C (GCC Compiler)</option>
+              <option value="python">Python 3</option>
+              <option value="cpp">C++ (G++)</option>
+              <option value="java">Java (OpenJDK)</option>
               <option value="html">HTML / CSS / JS</option>
             </select>
             <button class="run-btn" id="runCodeBtn" onclick="runRealCode()"><i class="fa-solid fa-play"></i> Run Code</button>
@@ -704,8 +699,8 @@
             <div class="terminal-container" id="terminalWrapper">
               <div class="terminal-box" id="terminalOutput">&gt; Press "Run Code" to compile and execute...</div>
               <div>
-                <span class="editor-label" style="margin-bottom: 3px;">Program Input (stdin - Optional for scanf / input):</span>
-                <textarea class="stdin-box" id="programStdin" placeholder="e.g. 10 20 (Space separated inputs)"></textarea>
+                <span class="editor-label" style="margin-bottom: 3px;">Program Input (stdin - e.g. 10 20):</span>
+                <textarea class="stdin-box" id="programStdin" placeholder="10 20"></textarea>
               </div>
             </div>
 
@@ -758,26 +753,21 @@
       const start = this.selectionStart;
       const end = this.selectionEnd;
 
-      // 1. Tab Key Support (4 Spaces)
       if (e.key === "Tab") {
         e.preventDefault();
         this.setRangeText("    ", start, end, "end");
         return;
       }
 
-      // 2. Auto Close Brackets & Quotes
       if (openPairs[e.key]) {
         e.preventDefault();
         const openChar = e.key;
         const closeChar = openPairs[openChar];
-
-        // Insert both and keep cursor in the middle
         this.setRangeText(openChar + closeChar, start, end, "end");
         this.selectionStart = this.selectionEnd = start + 1;
         return;
       }
 
-      // 3. Skip Closing Character if already present
       if (closePairs.includes(e.key)) {
         if (this.value.charAt(start) === e.key) {
           e.preventDefault();
@@ -786,7 +776,6 @@
         }
       }
 
-      // 4. Smart Backspace: Delete matching bracket pair
       if (e.key === "Backspace") {
         const prevChar = this.value.charAt(start - 1);
         const nextChar = this.value.charAt(start);
@@ -798,7 +787,6 @@
         }
       }
 
-      // 5. Smart Enter between { }
       if (e.key === "Enter") {
         const prevChar = this.value.charAt(start - 1);
         const nextChar = this.value.charAt(start);
@@ -811,18 +799,18 @@
       }
     });
 
-    // Judge0 Language IDs
-    const judge0Langs = {
-      c: { id: 50, template: `#include <stdio.h>\n\nint main() {\n    int a, b;\n    printf("Enter two numbers:\\n");\n    if (scanf("%d %d", &a, &b) == 2) {\n        printf("Sum: %d + %d = %d\\n", a, b, a + b);\n    } else {\n        printf("Error: Please provide two numbers in the input box below.\\n");\n    }\n    return 0;\n}`, defaultInput: "15 25" },
-      python: { id: 71, template: `# Python Sum of Two Numbers\ntry:\n    num1, num2 = map(int, input().split())\n    print(f"Result: {num1} + {num2} = {num1 + num2}")\nexcept Exception:\n    print("Please enter two numbers in the Program Input box below.")`, defaultInput: "10 40" },
-      cpp: { id: 54, template: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int a, b;\n    if (cin >> a >> b) {\n        cout << "Sum: " << (a + b) << endl;\n    } else {\n        cout << "Provide numbers in input box below." << endl;\n    }\n    return 0;\n}`, defaultInput: "5 7" },
-      java: { id: 62, template: `import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextInt()) {\n            int a = sc.nextInt();\n            int b = sc.nextInt();\n            System.out.println("Sum = " + (a + b));\n        }\n    }\n}`, defaultInput: "20 30" },
-      html: { id: null, template: `<div style="background: #0f172a; padding: 20px; border-radius: 12px; border: 1px solid #38bdf8; text-align: center;">\n  <h2 style="color: #38bdf8;">Welcome to Atifex!</h2>\n  <p style="color: #94a3b8; font-size: 14px;">Edit HTML/CSS and click Run Code.</p>\n  <button style="background: #22c55e; color: #022c22; font-weight: bold; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Test Button</button>\n</div>`, defaultInput: "" }
+    // Piston Language Configuration (Open, Zero-CORS, Free)
+    const pistonLangs = {
+      c: { language: "c", version: "10.2.0", template: `#include <stdio.h>\n\nint main() {\n    int a, b, sum;\n    printf("Enter two numbers: ");\n    scanf("%d %d", &a, &b);\n    sum = a + b;\n    printf("Result: %d + %d = %d\\n", a, b, sum);\n    return 0;\n}`, defaultInput: "10 20" },
+      python: { language: "python", version: "3.10.0", template: `# Python Sum of Two Numbers\na, b = map(int, input().split())\nprint(f"Sum = {a + b}")`, defaultInput: "15 35" },
+      cpp: { language: "cpp", version: "10.2.0", template: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int a, b;\n    cin >> a >> b;\n    cout << "Sum: " << (a + b) << endl;\n    return 0;\n}`, defaultInput: "5 25" },
+      java: { language: "java", version: "15.0.2", template: `import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt();\n        int b = sc.nextInt();\n        System.out.println("Sum: " + (a + b));\n    }\n}`, defaultInput: "30 70" },
+      html: { language: null, version: null, template: `<div style="background: #0f172a; padding: 20px; border-radius: 12px; border: 1px solid #38bdf8; text-align: center;">\n  <h2 style="color: #38bdf8;">Welcome to Atifex!</h2>\n  <p style="color: #94a3b8; font-size: 14px;">Edit HTML/CSS and click Run Code.</p>\n  <button style="background: #22c55e; color: #022c22; font-weight: bold; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Test Button</button>\n</div>`, defaultInput: "" }
     };
 
     function switchLanguage() {
       const selected = document.getElementById("compilerSelect").value;
-      const data = judge0Langs[selected];
+      const data = pistonLangs[selected];
       document.getElementById("universalCodeEditor").value = data.template;
       document.getElementById("programStdin").value = data.defaultInput;
 
@@ -854,46 +842,53 @@
 
       statusEl.innerText = "Compiling & Running...";
       statusEl.style.color = "#facc15";
-      terminal.innerText = "> Compiling source code on GCC / Cloud Engine...\n";
+      terminal.innerText = "> Submitting code to Real GCC / Runtime Engine...\n";
       terminal.style.color = "#cbd5e1";
 
-      const langId = judge0Langs[lang].id;
+      const target = pistonLangs[lang];
 
       try {
-        const response = await fetch("https://judge0-ce.p.sulu.sh/submissions?base64_encoded=false&wait=true", {
+        const response = await fetch("https://emkc.org/api/v2/piston/execute", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
+            "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            source_code: code,
-            language_id: langId,
+            language: target.language,
+            version: target.version,
+            files: [
+              {
+                content: code
+              }
+            ],
             stdin: stdin
           })
         });
 
-        const result = await response.json();
-        statusEl.innerText = result.status ? result.status.description : "Completed";
-
-        if (result.compile_output) {
+        const data = await response.json();
+        
+        // Check compilation failure / errors
+        if (data.compile && data.compile.code !== 0) {
+          statusEl.innerText = "Compilation Error";
           statusEl.style.color = "#ef4444";
           terminal.style.color = "#f87171";
-          terminal.innerText = `[COMPILATION ERROR / SYNTAX ERROR]\n\n${result.compile_output}`;
-        } else if (result.stderr) {
+          terminal.innerText = `[COMPILATION ERROR / SYNTAX ERROR]\n\n${data.compile.output || data.compile.stderr}`;
+        } else if (data.run && data.run.stderr) {
+          statusEl.innerText = "Runtime Error";
           statusEl.style.color = "#ef4444";
           terminal.style.color = "#f87171";
-          terminal.innerText = `[RUNTIME ERROR]\n\n${result.stderr}`;
-        } else {
+          terminal.innerText = `[RUNTIME ERROR]\n\n${data.run.stderr}`;
+        } else if (data.run) {
+          statusEl.innerText = "Executed";
           statusEl.style.color = "#22c55e";
           terminal.style.color = "#4ade80";
-          terminal.innerText = `[PROGRAM OUTPUT]\n\n${result.stdout || "Program executed successfully with no text output."}\n\nExecution Time: ${result.time || 0}s | Memory: ${result.memory || 0} KB`;
+          terminal.innerText = `[PROGRAM OUTPUT]\n\n${data.run.output || "Program ran with 0 output."}`;
         }
       } catch (err) {
-        statusEl.innerText = "Connection Failed";
+        statusEl.innerText = "Execution Fallback";
         statusEl.style.color = "#f97316";
         terminal.style.color = "#f87171";
-        terminal.innerText = `[NETWORK/SERVER NOTICE]\nCould not connect to external compiler sandbox directly: ${err.message}`;
+        terminal.innerText = `[CONNECTION ERROR]\nServer response: ${err.message}`;
       }
     }
 
