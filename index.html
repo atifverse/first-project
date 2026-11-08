@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atifex (AIA) | Beginner to Pro Tech Academy</title>
-  <meta name="description" content="Proprietary interactive learning platform for Coding, Digital Skills & Internet Architecture. Built by Mohammad Atif.">
+  <meta name="description" content="Proprietary interactive learning platform with real compilers, structured notes & tests. Built by Mohammad Atif.">
 
   <!-- FontAwesome & Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -44,7 +44,6 @@
       min-height: 100vh;
     }
 
-    /* Navbar */
     nav {
       position: sticky;
       top: 0;
@@ -89,21 +88,14 @@
       font-size: 13px;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.2s;
     }
 
-    .nav-cta:hover {
-      box-shadow: 0 4px 15px var(--primary-glow);
-    }
-
-    /* Container */
     .container {
       max-width: 960px;
       margin: 0 auto;
       padding: 40px 16px 80px;
     }
 
-    /* Hero */
     .hero {
       text-align: center;
       padding: 10px 0 35px;
@@ -144,7 +136,6 @@
       margin: 0 auto 26px;
     }
 
-    /* Course Filtering */
     .filter-tabs {
       display: flex;
       justify-content: center;
@@ -171,7 +162,6 @@
       border-color: var(--primary);
     }
 
-    /* Course Grid */
     .courses-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -247,7 +237,7 @@
       padding-top: 12px;
     }
 
-    /* Universal Live Code Playground Section */
+    /* Smart Real Interactive Playground */
     .playground-section {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -295,7 +285,7 @@
       background: #22c55e;
       color: #032512;
       border: none;
-      padding: 8px 18px;
+      padding: 8px 20px;
       border-radius: 8px;
       font-weight: 700;
       font-size: 13px;
@@ -313,10 +303,10 @@
     .playground-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 14px;
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 720px) {
       .playground-grid {
         grid-template-columns: 1fr;
       }
@@ -332,11 +322,21 @@
       font-weight: 600;
       color: var(--text-muted);
       margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .smart-tag {
+      font-size: 11px;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
     }
 
     .editor-box textarea {
       width: 100%;
-      height: 230px;
+      height: 290px;
       background: #040810;
       border: 1px solid var(--border);
       border-radius: 10px;
@@ -344,34 +344,64 @@
       color: #38bdf8;
       font-family: 'JetBrains Mono', monospace;
       font-size: 13px;
+      line-height: 1.5;
       resize: vertical;
       outline: none;
+      tab-size: 4;
     }
 
-    .preview-box iframe {
-      width: 100%;
-      height: 230px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
+    .terminal-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .terminal-output {
-      display: none;
+    .terminal-box {
       width: 100%;
-      height: 230px;
+      height: 200px;
       background: #040810;
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 12px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
+      font-size: 12.5px;
+      line-height: 1.5;
       color: #4ade80;
       overflow-y: auto;
       white-space: pre-wrap;
     }
 
-    /* Full-Screen Interactive Learning View (Dedicated Page) */
+    .stdin-box {
+      width: 100%;
+      height: 75px;
+      background: #080e1a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      color: #cbd5e1;
+      resize: none;
+      outline: none;
+    }
+
+    .preview-box {
+      display: none;
+      width: 100%;
+      height: 290px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .preview-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Dedicated Full-Page Learning Mode */
     .learn-view {
       display: none;
       position: fixed;
@@ -410,10 +440,6 @@
       gap: 8px;
     }
 
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
     .lesson-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -426,9 +452,6 @@
       font-size: 20px;
       color: #fff;
       margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
     .lesson-card p {
@@ -465,7 +488,6 @@
       margin: 20px auto 0;
     }
 
-    /* Quiz Area */
     .quiz-section {
       display: none;
       background: rgba(56, 189, 248, 0.05);
@@ -529,25 +551,22 @@
 </head>
 <body>
 
-  <!-- Main Platform Container -->
+  <!-- Main View -->
   <div id="mainPlatform">
-    <!-- Navbar -->
     <nav>
       <a href="#" class="brand">
         <div class="brand-logo"><i class="fa-solid fa-graduation-cap"></i></div>
         <span>Atifex</span>
       </a>
-      <a href="#playground" class="nav-cta"><i class="fa-solid fa-code"></i> Live Multi-Editor</a>
+      <a href="#playground" class="nav-cta"><i class="fa-solid fa-play"></i> Real Compiler</a>
     </nav>
 
     <div class="container">
-      <!-- Hero Section -->
       <header class="hero">
         <div class="badge"><i class="fa-solid fa-bolt"></i> Atifex Interactive Academy (AIA) • Beginner Friendly</div>
         <h1>Master Real Internet Skills <span>From Zero</span></h1>
-        <p>Topic-wise complete notes, live browser coding practice, and instant concept tests.</p>
+        <p>0-level detailed study notes, real interactive coding compiler, and self-evaluation tests.</p>
 
-        <!-- Category Filter Tabs -->
         <div class="filter-tabs">
           <button class="tab-btn active" onclick="filterCourses('all', this)">All Courses</button>
           <button class="tab-btn" onclick="filterCourses('coding', this)">Languages & CS</button>
@@ -556,25 +575,8 @@
         </div>
       </header>
 
-      <!-- Course & Skill Tracks -->
+      <!-- Courses Grid -->
       <div class="courses-grid" id="coursesGrid">
-        <!-- Python Track -->
-        <div class="course-card" data-category="coding" onclick="openDedicatedCourse('python')">
-          <div>
-            <div class="card-top">
-              <div class="icon-box" style="color: #38bdf8;"><i class="fa-brands fa-python"></i></div>
-              <span class="course-level">Beginner 0 Level</span>
-            </div>
-            <h3>Python Programming</h3>
-            <p>0 level se variables, data types, if-else logic, loops aur practical automation scripts.</p>
-          </div>
-          <div class="card-footer">
-            <span>Open Study Track & Quiz</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
-        </div>
-
-        <!-- C Language Track -->
         <div class="course-card" data-category="coding" onclick="openDedicatedCourse('c')">
           <div>
             <div class="card-top">
@@ -582,31 +584,44 @@
               <span class="course-level">CS Foundation</span>
             </div>
             <h3>C Language & Logic</h3>
-            <p>Computer memory kaise kaam karti hai, pointers, memory addresses, aur core logic.</p>
+            <p>0-level se program structure, memory pointers, do numbers add karne ka program, aur logic notes.</p>
           </div>
           <div class="card-footer">
-            <span>Open Study Track & Quiz</span>
+            <span>Read 0-Level Notes & Quiz</span>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
         </div>
 
-        <!-- Web Dev Track -->
+        <div class="course-card" data-category="coding" onclick="openDedicatedCourse('python')">
+          <div>
+            <div class="card-top">
+              <div class="icon-box" style="color: #38bdf8;"><i class="fa-brands fa-python"></i></div>
+              <span class="course-level">Beginner 0 Level</span>
+            </div>
+            <h3>Python Programming</h3>
+            <p>Variables, user input, mathematical calculations, if-else, aur real-world automation scripts.</p>
+          </div>
+          <div class="card-footer">
+            <span>Read 0-Level Notes & Quiz</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
         <div class="course-card" data-category="coding" onclick="openDedicatedCourse('web')">
           <div>
             <div class="card-top">
               <div class="icon-box" style="color: #f97316;"><i class="fa-brands fa-html5"></i></div>
               <span class="course-level">Full Stack Web</span>
             </div>
-            <h3>Web Development (HTML/CSS/JS)</h3>
-            <p>Mobile friendly responsive website design, styling, JavaScript click actions, and hosting.</p>
+            <h3>Web Development</h3>
+            <p>HTML tags, modern responsive styling, JavaScript events, buttons, and free deployment.</p>
           </div>
           <div class="card-footer">
-            <span>Open Study Track & Quiz</span>
+            <span>Read 0-Level Notes & Quiz</span>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
         </div>
 
-        <!-- Digital Marketing Track -->
         <div class="course-card" data-category="marketing" onclick="openDedicatedCourse('marketing')">
           <div>
             <div class="card-top">
@@ -614,15 +629,14 @@
               <span class="course-level">Organic Rank 1</span>
             </div>
             <h3>SEO & Digital Marketing</h3>
-            <p>Google search me number 1 par aane ke secret techniques, Search Console aur keyword research.</p>
+            <p>Google search me number 1 kaise aayein, Search Console indexing, aur organic traffic hacks.</p>
           </div>
           <div class="card-footer">
-            <span>Open Study Track & Quiz</span>
+            <span>Read 0-Level Notes & Quiz</span>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
         </div>
 
-        <!-- Content Creation Track -->
         <div class="course-card" data-category="marketing" onclick="openDedicatedCourse('media')">
           <div>
             <div class="card-top">
@@ -630,15 +644,14 @@
               <span class="course-level">Audience Building</span>
             </div>
             <h3>Content Creation & Branding</h3>
-            <p>Viral hook structure, visual pacing, short-form editing retention, and personal brand.</p>
+            <p>3-second viral hook rule, editing pacing, visual retention, aur digital presence.</p>
           </div>
           <div class="card-footer">
-            <span>Open Study Track & Quiz</span>
+            <span>Read 0-Level Notes & Quiz</span>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
         </div>
 
-        <!-- AI Workflows Track -->
         <div class="course-card" data-category="tech" onclick="openDedicatedCourse('ai')">
           <div>
             <div class="card-top">
@@ -646,72 +659,85 @@
               <span class="course-level">Next-Gen Tech</span>
             </div>
             <h3>AI Workflows & APIs</h3>
-            <p>Prompt engineering, Gemini aur OpenAI APIs ko connect karke AI tools banana.</p>
+            <p>Prompt engineering, Gemini aur OpenAI APIs ko scripts ke sath connect karke bot banana.</p>
           </div>
           <div class="card-footer">
-            <span>Open Study Track & Quiz</span>
+            <span>Read 0-Level Notes & Quiz</span>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
         </div>
       </div>
 
-      <!-- Live Multi-Language Code Playground Section -->
+      <!-- Real Working Multi-Language Online Compiler Section with Smart Editor -->
       <section class="playground-section" id="playground">
         <div class="playground-header">
-          <h2><i class="fa-solid fa-laptop-code" style="color: var(--primary);"></i> Universal Multi-Language Code Playground</h2>
+          <h2><i class="fa-solid fa-laptop-code" style="color: var(--primary);"></i> Real Multi-Language Compiler & Runner</h2>
           <div class="playground-controls">
-            <select class="lang-select" id="langSelector" onchange="switchLanguage()">
+            <select class="lang-select" id="compilerSelect" onchange="switchLanguage()">
+              <option value="c">C (GCC 9.2.0)</option>
+              <option value="python">Python (3.8.1)</option>
+              <option value="cpp">C++ (GCC 9.2.0)</option>
+              <option value="java">Java (OpenJDK 13)</option>
               <option value="html">HTML / CSS / JS</option>
-              <option value="python">Python 3</option>
-              <option value="c">C Language</option>
-              <option value="cpp">C++</option>
-              <option value="javascript">JavaScript (Node)</option>
             </select>
-            <button class="run-btn" onclick="executeEditorCode()"><i class="fa-solid fa-play"></i> Run Code</button>
+            <button class="run-btn" id="runCodeBtn" onclick="runRealCode()"><i class="fa-solid fa-play"></i> Run Code</button>
           </div>
         </div>
+
         <div class="playground-grid">
           <div class="editor-wrapper">
-            <span class="editor-label" id="editorCodeLabel">Edit Code:</span>
+            <span class="editor-label">
+              <span>Code Editor:</span>
+              <span class="smart-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Auto-Bracket & Tab Enabled</span>
+            </span>
             <div class="editor-box">
               <textarea id="universalCodeEditor" spellcheck="false"></textarea>
             </div>
           </div>
+          
           <div class="editor-wrapper">
-            <span class="editor-label" id="outputLabel">Live Preview / Terminal:</span>
-            <div class="preview-box" id="htmlPreviewContainer">
-              <iframe id="universalLiveFrame"></iframe>
+            <span class="editor-label">
+              <span>Terminal & Compiler Output:</span>
+              <span id="compilerStatus" style="color: var(--primary); font-size: 11px;">Ready</span>
+            </span>
+
+            <div class="terminal-container" id="terminalWrapper">
+              <div class="terminal-box" id="terminalOutput">&gt; Press "Run Code" to compile and execute...</div>
+              <div>
+                <span class="editor-label" style="margin-bottom: 3px;">Program Input (stdin - Optional for scanf / input):</span>
+                <textarea class="stdin-box" id="programStdin" placeholder="e.g. 10 20 (Space separated inputs)"></textarea>
+              </div>
             </div>
-            <div class="terminal-output" id="terminalContainer"></div>
+
+            <div class="preview-box" id="htmlPreviewContainer">
+              <iframe id="htmlPreviewFrame"></iframe>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Footer -->
       <footer>
         <p>© 2026 <strong>Atifex Interactive Academy (AIA)</strong>. Founded by Mohammad Atif.</p>
-        <p style="font-size: 12px; margin-top: 6px;">Free 0-Level education for builders, coders, and creators.</p>
+        <p style="font-size: 12px; margin-top: 6px;">Zero distraction, self-hosted notes and quizzes for serious creators & developers.</p>
       </footer>
     </div>
   </div>
 
-  <!-- Dedicated Full-Page Learning Mode -->
+  <!-- Dedicated Course Window -->
   <div class="learn-view" id="learnPage">
     <div class="learn-container">
       <div class="learn-nav">
         <button class="back-btn" onclick="closeDedicatedCourse()"><i class="fa-solid fa-arrow-left"></i> Back to All Courses</button>
-        <span class="course-level" style="font-size: 12px;">Interactive Track</span>
+        <span class="course-level" style="font-size: 12px;">Atifex 0-Level Notes</span>
       </div>
 
       <div id="courseContentArea"></div>
 
-      <!-- Action Button to Unlock Quiz -->
       <button class="next-step-btn" id="nextQuizBtn" onclick="revealCourseQuiz()">
         <span>Complete Reading & Take Topic Quiz</span>
         <i class="fa-solid fa-circle-arrow-right"></i>
       </button>
 
-      <!-- Quiz Area -->
       <div class="quiz-section" id="quizSection">
         <h3 style="color: #fff; font-size: 17px; margin-bottom: 8px;"><i class="fa-solid fa-award" style="color: var(--primary);"></i> Skill Test: Test Your Knowledge</h3>
         <p id="quizQuestion" style="font-size: 14px; color: #cbd5e1;"></p>
@@ -722,95 +748,157 @@
   </div>
 
   <script>
-    // Templates for Live Multi-Language Editor
-    const languageTemplates = {
-      html: `<div style="background: #0f172a; padding: 20px; border-radius: 12px; border: 1px solid #38bdf8; text-align: center;">
-  <h2 style="color: #38bdf8;">Welcome to Atifex!</h2>
-  <p style="color: #94a3b8; font-size: 14px;">Edit HTML/CSS directly and see live preview.</p>
-  <button style="background: #22c55e; color: #022c22; font-weight: bold; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Interactive Button</button>
-</div>`,
-      python: `# Zero-Level Python Practice
-name = "Atif"
-skills = ["Python", "Web Development", "AI Automation"]
+    // Smart Editor: Auto Close Brackets & Tab Indentation
+    const editor = document.getElementById("universalCodeEditor");
 
-print(f"Hello, welcome {name} to Atifex Python Hub!")
-for skill in skills:
-    print(f"-> Learning: {skill}")`,
-      c: `// C Language Memory & Output
-#include <stdio.h>
+    editor.addEventListener("keydown", function (e) {
+      const openPairs = { '{': '}', '(': ')', '[': ']', '"': '"', "'": "'" };
+      const closePairs = ['}', ')', ']', '"', "'"];
 
-int main() {
-    int age = 19;
-    printf("Welcome to C Programming!\\n");
-    printf("Age Value: %d\\n", age);
-    printf("Memory Address: %p\\n", &age);
-    return 0;
-}`,
-      cpp: `// Modern C++ Programming
-#include <iostream>
-using namespace std;
+      const start = this.selectionStart;
+      const end = this.selectionEnd;
 
-int main() {
-    cout << "Welcome to Atifex C++ Track!" << endl;
-    cout << "Ready for High-Performance Coding." << endl;
-    return 0;
-}`,
-      javascript: `// JavaScript Logic Engine
-const course = "Atifex Full-Stack";
-const topics = ["HTML5", "CSS3", "Modern JS"];
+      // 1. Tab Key Support (4 Spaces)
+      if (e.key === "Tab") {
+        e.preventDefault();
+        this.setRangeText("    ", start, end, "end");
+        return;
+      }
 
-console.log("Welcome to:", course);
-topics.forEach((t, i) => console.log(\`\${i + 1}. \${t}\`));`
+      // 2. Auto Close Brackets & Quotes
+      if (openPairs[e.key]) {
+        e.preventDefault();
+        const openChar = e.key;
+        const closeChar = openPairs[openChar];
+
+        // Insert both and keep cursor in the middle
+        this.setRangeText(openChar + closeChar, start, end, "end");
+        this.selectionStart = this.selectionEnd = start + 1;
+        return;
+      }
+
+      // 3. Skip Closing Character if already present
+      if (closePairs.includes(e.key)) {
+        if (this.value.charAt(start) === e.key) {
+          e.preventDefault();
+          this.selectionStart = this.selectionEnd = start + 1;
+          return;
+        }
+      }
+
+      // 4. Smart Backspace: Delete matching bracket pair
+      if (e.key === "Backspace") {
+        const prevChar = this.value.charAt(start - 1);
+        const nextChar = this.value.charAt(start);
+        if (openPairs[prevChar] && openPairs[prevChar] === nextChar) {
+          e.preventDefault();
+          this.setRangeText("", start - 1, start + 1, "end");
+          this.selectionStart = this.selectionEnd = start - 1;
+          return;
+        }
+      }
+
+      // 5. Smart Enter between { }
+      if (e.key === "Enter") {
+        const prevChar = this.value.charAt(start - 1);
+        const nextChar = this.value.charAt(start);
+        if (prevChar === '{' && nextChar === '}') {
+          e.preventDefault();
+          this.setRangeText("\n    \n", start, end, "end");
+          this.selectionStart = this.selectionEnd = start + 5;
+          return;
+        }
+      }
+    });
+
+    // Judge0 Language IDs
+    const judge0Langs = {
+      c: { id: 50, template: `#include <stdio.h>\n\nint main() {\n    int a, b;\n    printf("Enter two numbers:\\n");\n    if (scanf("%d %d", &a, &b) == 2) {\n        printf("Sum: %d + %d = %d\\n", a, b, a + b);\n    } else {\n        printf("Error: Please provide two numbers in the input box below.\\n");\n    }\n    return 0;\n}`, defaultInput: "15 25" },
+      python: { id: 71, template: `# Python Sum of Two Numbers\ntry:\n    num1, num2 = map(int, input().split())\n    print(f"Result: {num1} + {num2} = {num1 + num2}")\nexcept Exception:\n    print("Please enter two numbers in the Program Input box below.")`, defaultInput: "10 40" },
+      cpp: { id: 54, template: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int a, b;\n    if (cin >> a >> b) {\n        cout << "Sum: " << (a + b) << endl;\n    } else {\n        cout << "Provide numbers in input box below." << endl;\n    }\n    return 0;\n}`, defaultInput: "5 7" },
+      java: { id: 62, template: `import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextInt()) {\n            int a = sc.nextInt();\n            int b = sc.nextInt();\n            System.out.println("Sum = " + (a + b));\n        }\n    }\n}`, defaultInput: "20 30" },
+      html: { id: null, template: `<div style="background: #0f172a; padding: 20px; border-radius: 12px; border: 1px solid #38bdf8; text-align: center;">\n  <h2 style="color: #38bdf8;">Welcome to Atifex!</h2>\n  <p style="color: #94a3b8; font-size: 14px;">Edit HTML/CSS and click Run Code.</p>\n  <button style="background: #22c55e; color: #022c22; font-weight: bold; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Test Button</button>\n</div>`, defaultInput: "" }
     };
 
     function switchLanguage() {
-      const selected = document.getElementById("langSelector").value;
-      document.getElementById("universalCodeEditor").value = languageTemplates[selected];
-      executeEditorCode();
-    }
+      const selected = document.getElementById("compilerSelect").value;
+      const data = judge0Langs[selected];
+      document.getElementById("universalCodeEditor").value = data.template;
+      document.getElementById("programStdin").value = data.defaultInput;
 
-    function executeEditorCode() {
-      const lang = document.getElementById("langSelector").value;
-      const code = document.getElementById("universalCodeEditor").value;
-      const htmlPreview = document.getElementById("htmlPreviewContainer");
-      const terminal = document.getElementById("terminalContainer");
-
-      if (lang === "html") {
-        htmlPreview.style.display = "block";
-        terminal.style.display = "none";
-        const frame = document.getElementById("universalLiveFrame").contentWindow.document;
-        frame.open();
-        frame.write(code);
-        frame.close();
+      if (selected === "html") {
+        document.getElementById("terminalWrapper").style.display = "none";
+        document.getElementById("htmlPreviewContainer").style.display = "block";
       } else {
-        htmlPreview.style.display = "none";
-        terminal.style.display = "block";
-
-        if (lang === "python") {
-          terminal.innerText = `> Executing Python 3 Script...\n\n[OUTPUT]\nHello, welcome Atif to Atifex Python Hub!\n-> Learning: Python\n-> Learning: Web Development\n-> Learning: AI Automation\n\nProcess finished with exit code 0`;
-        } else if (lang === "c") {
-          terminal.innerText = `> gcc main.c -o main && ./main\n\n[OUTPUT]\nWelcome to C Programming!\nAge Value: 19\nMemory Address: 0x7ffd52a8b94c\n\nProgram finished successfully.`;
-        } else if (lang === "cpp") {
-          terminal.innerText = `> g++ main.cpp -o main && ./main\n\n[OUTPUT]\nWelcome to Atifex C++ Track!\nReady for High-Performance Coding.\n\nProcess exited with status 0.`;
-        } else if (lang === "javascript") {
-          try {
-            let logs = [];
-            const customConsole = { log: (...args) => logs.push(args.join(" ")) };
-            const runFn = new Function("console", code);
-            runFn(customConsole);
-            terminal.innerText = `> node index.js\n\n[OUTPUT]\n` + logs.join("\n");
-          } catch (e) {
-            terminal.innerText = `> Error:\n` + e.message;
-          }
-        }
+        document.getElementById("terminalWrapper").style.display = "flex";
+        document.getElementById("htmlPreviewContainer").style.display = "none";
+        document.getElementById("terminalOutput").innerText = `> Switched to ${selected.toUpperCase()}. Press 'Run Code' to compile.`;
+        document.getElementById("terminalOutput").style.color = "#4ade80";
       }
     }
 
-    // Set initial editor
-    document.getElementById("universalCodeEditor").value = languageTemplates.html;
-    window.onload = executeEditorCode;
+    async function runRealCode() {
+      const lang = document.getElementById("compilerSelect").value;
+      const code = document.getElementById("universalCodeEditor").value;
+      const stdin = document.getElementById("programStdin").value;
+      const statusEl = document.getElementById("compilerStatus");
+      const terminal = document.getElementById("terminalOutput");
 
-    // Filter Logic
+      if (lang === "html") {
+        const frame = document.getElementById("htmlPreviewFrame").contentWindow.document;
+        frame.open();
+        frame.write(code);
+        frame.close();
+        return;
+      }
+
+      statusEl.innerText = "Compiling & Running...";
+      statusEl.style.color = "#facc15";
+      terminal.innerText = "> Compiling source code on GCC / Cloud Engine...\n";
+      terminal.style.color = "#cbd5e1";
+
+      const langId = judge0Langs[lang].id;
+
+      try {
+        const response = await fetch("https://judge0-ce.p.sulu.sh/submissions?base64_encoded=false&wait=true", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            source_code: code,
+            language_id: langId,
+            stdin: stdin
+          })
+        });
+
+        const result = await response.json();
+        statusEl.innerText = result.status ? result.status.description : "Completed";
+
+        if (result.compile_output) {
+          statusEl.style.color = "#ef4444";
+          terminal.style.color = "#f87171";
+          terminal.innerText = `[COMPILATION ERROR / SYNTAX ERROR]\n\n${result.compile_output}`;
+        } else if (result.stderr) {
+          statusEl.style.color = "#ef4444";
+          terminal.style.color = "#f87171";
+          terminal.innerText = `[RUNTIME ERROR]\n\n${result.stderr}`;
+        } else {
+          statusEl.style.color = "#22c55e";
+          terminal.style.color = "#4ade80";
+          terminal.innerText = `[PROGRAM OUTPUT]\n\n${result.stdout || "Program executed successfully with no text output."}\n\nExecution Time: ${result.time || 0}s | Memory: ${result.memory || 0} KB`;
+        }
+      } catch (err) {
+        statusEl.innerText = "Connection Failed";
+        statusEl.style.color = "#f97316";
+        terminal.style.color = "#f87171";
+        terminal.innerText = `[NETWORK/SERVER NOTICE]\nCould not connect to external compiler sandbox directly: ${err.message}`;
+      }
+    }
+
+    switchLanguage();
+
     function filterCourses(category, btn) {
       document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
@@ -825,69 +913,43 @@ topics.forEach((t, i) => console.log(\`\${i + 1}. \${t}\`));`
       });
     }
 
-    // 0-Level Notes & Structured Learning Data
     const fullCoursesData = {
-      python: {
-        title: "Python 0-Level Complete Course",
+      c: {
+        title: "C Language 0-Level Foundation: Zero Se Shikhar Tak",
         lessons: [
           {
-            title: "Lesson 1: Python Kya Hai aur Variable Kaise Banate Hain?",
-            desc: "Python sabse simple aur powerful programming language hai. Isme code bilkul English ki tarah likha jata hai. Kisi variable ko banate waqt data type likhna nahi padta (jaise C me `int` likhna padta hai).",
-            code: `# 0 Level Example:
-age = 19               # Yeh Integer (number) hai
-name = "Atif"          # Yeh String (text) hai
-is_learning = True     # Yeh Boolean (True/False) hai
-
-print("Mera Naam:", name)
-print("Umar:", age)`
+            title: "Lesson 1: C Ka Pehla Program Aur Structure",
+            desc: "C me har program `#include <stdio.h>` se shuru hota hai. Execution `main()` se start hota hai aur har statement ke aakhir me semicolon (;) lagana mandatory hota hai.",
+            code: `#include <stdio.h>\n\nint main() {\n    printf("Welcome to C Language!\\n");\n    return 0;\n}`
           },
           {
-            title: "Lesson 2: Conditions (Faisle Lena - if/else)",
-            desc: "Jab program ko decide karna ho ki kya karna hai, tab `if-else` use hota hai. Dhyan rahe Python me brackets `{}` ke bajaye indentation (space) use hoti hai.",
-            code: `marks = 75
-
-if marks >= 60:
-    print("Mubaarak! First Division pass hue.")
-else:
-    print("Aur practice ki zaroorat hai.")`
+            title: "Lesson 2: Do Numbers Ka Addition (Sum of Two Numbers)",
+            desc: "User se input lene ke liye `scanf()` use karte hain aur variable ke pehle `&` lagate hain taaki input direct us memory address par store ho sake.",
+            code: `#include <stdio.h>\n\nint main() {\n    int a, b, sum;\n    \n    printf("Enter First Number: ");\n    scanf("%d", &a);\n    \n    printf("Enter Second Number: ");\n    scanf("%d", &b);\n    \n    sum = a + b;\n    printf("Result (A + B) = %d\\n", sum);\n    \n    return 0;\n}`
           }
         ],
         quiz: {
-          q: "Python me kisi variable ka text output screen par dikhane ke liye kaunsa function use hota hai?",
-          opts: ["echo()", "printf()", "print()", "system.out()"],
-          correct: 2,
-          exp: "Bilkul Sahi! Python me print() function screen par output display karne ke liye use hota hai."
+          q: "C language me user se input lene ke liye 'scanf' me variable ke pehle kya lagana zaroori hota hai?",
+          opts: ["* (Asterisk)", "& (Ampersand / Address-of)", "# (Hash)", "% (Percent)"],
+          correct: 1,
+          exp: "Sahi Jawab! '&' operator memory address batata hai jahan value store hoti hai."
         }
       },
 
-      c: {
-        title: "C Language 0-Level Core Foundation",
+      python: {
+        title: "Python 0-Level: Complete Beginner Notes",
         lessons: [
           {
-            title: "Lesson 1: C Language ka Structure aur Memory",
-            desc: "C compiled language hai. Har C program execution `#include <stdio.h>` se shuru hota hai aur `main()` function se execute hota hai. Har variable memory (RAM) me ek specific space leta hai.",
-            code: `#include <stdio.h>
-
-int main() {
-    int roll_no = 101;
-    printf("Roll Number: %d\\n", roll_no);
-    return 0;
-}`
-          },
-          {
-            title: "Lesson 2: Pointer Kya Hota Hai? (Memory Address)",
-            desc: "Pointer ek special variable hota hai jo kisi dusre variable ka memory address (&) store karta hai. Yeh hardware aur memory control ke liye sabse important concept hai.",
-            code: `int number = 50;
-int *ptr = &number; // ptr me number ka memory address save hua
-
-printf("Address: %p\\n", ptr);`
+            title: "Lesson 1: Python Basics & Sum of Two Numbers",
+            desc: "Python me data types manually likhne nahi padte. User se input lene ke liye `input()` use hota hai aur calculation ke liye use `int()` me convert kiya jata hai.",
+            code: `# Do numbers ka jod Python me:\nnum1 = int(input("Enter first number: "))\nnum2 = int(input("Enter second number: "))\n\nresult = num1 + num2\nprint("Total Sum =", result)`
           }
         ],
         quiz: {
-          q: "C language me user se input lene ke liye kaunsa function use kiya jata hai?",
-          opts: ["cin", "scanf()", "input()", "read()"],
+          q: "Python me keyboard se user input lene ke liye kaunsa function use hota hai?",
+          opts: ["read()", "input()", "scan()", "get()"],
           correct: 1,
-          exp: "Sahi Jawab! scanf() function C language me keyboard se input lene ke liye use hota hai."
+          exp: "Sahi Jawab! input() function se Python me strings aur numbers input liye jate hain."
         }
       },
 
@@ -895,53 +957,50 @@ printf("Address: %p\\n", ptr);`
         title: "Web Development 0-Level Architecture",
         lessons: [
           {
-            title: "Lesson 1: HTML, CSS aur JS ka Asal Kaam",
-            desc: "HTML = Ghar ki deewarein aur structure (Text, Image, Buttons). CSS = Paint, Tiles aur Design (Colors, Mobile sizing). JavaScript = Bijli aur Switchboard (Button dabane par kya hoga).",
-            code: `<button onclick="alert('Hello Atifex!')">Click Me</button>`
+            title: "Lesson 1: HTML, CSS aur JavaScript ka Role",
+            desc: "HTML structure banata hai, CSS design aur color deti hai, aur JavaScript website me interactive functionality lati hai.",
+            code: `<button onclick="alert('Hello from Atifex!')">Click Karo</button>`
           }
         ],
         quiz: {
-          q: "Kisi website ko phone me sahi scale karne ke liye kaunsa meta tag lagana zaroori hai?",
-          opts: ["<meta charset>", "<meta name='viewport'>", "<meta name='theme'>", "<meta http>"],
+          q: "Mobile screen ke liye website ko responsive banane wala tag kaunsa hai?",
+          opts: ["<meta charset>", "<meta name='viewport'>", "<script>", "<title>"],
           correct: 1,
-          exp: "Sahi Jawab! <meta name='viewport' content='width=device-width, initial-scale=1.0'> phone screen par elements ko sahi size me dikhata hai."
+          exp: "Sahi Jawab! Viewport meta tag screen width ke mutabiq page scale karta hai."
         }
       },
 
       marketing: {
-        title: "Digital Marketing & SEO Mastery",
+        title: "SEO & Digital Growth Architecture",
         lessons: [
           {
-            title: "Lesson 1: Google Search Ranking (SEO) Formula",
-            desc: "Google par number 1 rank lene ke liye sabse pehle Google Search Console me website submit karni hoti hai. Long-tail keywords target karein aur meta description clear rakhein.",
-            code: `<title>Atifex | Master Internet Skills</title>
-<meta name="description" content="Beginner friendly complete notes and live coding platform.">`
+            title: "Lesson 1: Google Search Me Rank 1 Kaise Aayein?",
+            desc: "Google Search Console me Sitemap submit karein, title aur headings me main keyword shuru me rakhein, aur mobile loading speed fast rakhein.",
+            code: `<title>Atifex | Master Internet Skills</title>\n<meta name="description" content="Free 0-level coding, SEO, and tech platform.">`
           }
         ],
         quiz: {
-          q: "Google bot ko website ke saare link batane ke liye konsi file submit ki jaati hai?",
-          opts: ["index.html", "sitemap.xml", "robots.txt", "style.css"],
+          q: "Google crawlers ko site ke saare pages discover karane ke liye kya submit karte hain?",
+          opts: ["robots.txt", "sitemap.xml", "index.html", "style.css"],
           correct: 1,
-          exp: "Sahi Jawab! sitemap.xml me site ke saare pages listed hote hain jisse Google unhe scan karta hai."
+          exp: "Sahi Jawab! sitemap.xml se Google bot ko page ka direct link mil jata hai."
         }
       },
 
       media: {
-        title: "Content Creation & Retention Engine",
+        title: "Content Creation & Audience Retention",
         lessons: [
           {
-            title: "Lesson 1: 3-Second Hook Rule",
-            desc: "Video shuru hote hi intro mat dein ('Welcome to my channel'). Pehle 3 second me seedhe user ki problem aur video ka outcome promise karein.",
-            code: `[0 to 3 sec] -> Hook (Problem)
-[3 to 30 sec] -> Fast proof + Context
-[Payoff] -> Direct value deliver karein`
+            title: "Lesson 1: 3-Second Retention Rule",
+            desc: "Video shuru hote hi audience ki problem address karein. Shuru ke 3 second me viewer decide karta hai rukna hai ya scroll karna hai.",
+            code: `[0-3 Sec] -> Direct Problem Hook\n[3-30 Sec] -> Quick Proof + Pacing\n[Final] -> Actionable Value Delivery`
           }
         ],
         quiz: {
-          q: "Video par user click karega ya nahi, yeh 90% kis cheez par depend karta hai?",
-          opts: ["Background Music", "Thumbnail aur Title Hook", "Camera brand", "Video export speed"],
+          q: "Video CTR (Click Through Rate) badhane ke liye sabse important kya hota hai?",
+          opts: ["Video FPS", "Thumbnail aur Hook Title", "Audio format", "Tags ki lambai"],
           correct: 1,
-          exp: "Sahi Jawab! Thumbnail aur Title dekh kar hi user decide karta hai ki video dekhna hai ya scroll karna hai."
+          exp: "Sahi Jawab! Thumbnail aur title hook se hi maximum clicks aate hain."
         }
       },
 
@@ -949,21 +1008,16 @@ printf("Address: %p\\n", ptr);`
         title: "AI Workflows & API Integrations",
         lessons: [
           {
-            title: "Lesson 1: AI Prompting aur API Connection",
-            desc: "AI ko exact result nikalne ke liye Role + Context + Output format specify karein. Automated scripts ke liye REST API keys use hoti hain.",
-            code: `# Python me Gemini AI API Blueprint
-import google.generativeai as genai
-genai.configure(api_key="YOUR_API_KEY")
-model = genai.GenerativeModel('gemini-pro')
-response = model.generate_content("Explain algorithms simply.")
-print(response.text)`
+            title: "Lesson 1: AI Prompting & Gemini API",
+            desc: "AI models ko code me connect karne ke liye REST APIs use hoti hain. Model ko clear instructions dein taaki exact code output mile.",
+            code: `# Python Gemini API Blueprint\nimport google.generativeai as genai\ngenai.configure(api_key="API_KEY")\nmodel = genai.GenerativeModel('gemini-pro')\nprint(model.generate_content("Explain C Pointers").text)`
           }
         ],
         quiz: {
-          q: "AI applications banate waqt Secret API keys kahan rakhni chahiye?",
-          opts: ["Public GitHub code me", "Environment Variables (.env file)", "HTML file ke andar", "CSS me"],
+          q: "Secret API keys ko securely kahan store kiya jata hai?",
+          opts: ["Public GitHub code me", "Environment Variables (.env file)", "HTML file me", "CSS me"],
           correct: 1,
-          exp: "Sahi Jawab! API key ko hamesha .env file me secure rakha jata hai taaki koi copy na kar sake."
+          exp: "Sahi Jawab! API keys hamesha .env me rakhi jati hain taaki leak na hon."
         }
       }
     };
@@ -989,7 +1043,6 @@ print(response.text)`
         area.appendChild(div);
       });
 
-      // Reset Quiz
       document.getElementById("quizSection").style.display = "none";
       document.getElementById("nextQuizBtn").style.display = "flex";
       document.getElementById("quizFeedbackBox").style.display = "none";
