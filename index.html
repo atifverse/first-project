@@ -92,6 +92,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      border: none;
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
@@ -264,9 +265,6 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 20px;
-      max-width: 580px;
-      width: 100%;
-      padding: 26px;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
     }
 
@@ -274,14 +272,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 18px;
       border-bottom: 1px solid var(--border);
       padding-bottom: 12px;
-    }
-
-    .modal-header h3 {
-      font-size: 19px;
-      color: #fff;
     }
 
     .close-modal {
@@ -294,39 +286,6 @@
 
     .close-modal:hover {
       color: #fff;
-    }
-
-    .compiler-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 12px;
-    }
-
-    .compiler-btn {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px 12px;
-      color: #fff;
-      text-align: center;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: all 0.2s;
-    }
-
-    .compiler-btn i {
-      font-size: 28px;
-    }
-
-    .compiler-btn:hover {
-      border-color: var(--primary);
-      background: rgba(56, 189, 248, 0.1);
-      transform: translateY(-3px);
     }
 
     /* Dedicated Full-Page Learning Mode */
@@ -481,7 +440,7 @@
         <div class="brand-logo"><i class="fa-solid fa-graduation-cap"></i></div>
         <span>Atifex</span>
       </a>
-      <button class="nav-cta" onclick="openCompilerModal()"><i class="fa-solid fa-play"></i> Real Compiler</button>
+      <button class="nav-cta" onclick="openCompilerModal()"><i class="fa-solid fa-play"></i> AIA Compiler</button>
     </nav>
 
     <div class="container">
@@ -598,48 +557,32 @@
     </div>
   </div>
 
-  <!-- Real Compiler Language Selection Modal -->
+  <!-- AIA In-App Compiler Workspace Modal (Opens directly in your platform) -->
   <div class="modal-overlay" id="compilerModal" onclick="closeCompilerModalOutside(event)">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3><i class="fa-solid fa-terminal" style="color: var(--primary);"></i> Select Compiler Language</h3>
+    <div class="modal-card" style="max-width: 950px; width: 95%; height: 90vh; display: flex; flex-direction: column; padding: 20px;">
+      
+      <!-- Modal Header -->
+      <div class="modal-header" style="margin-bottom: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <h3 style="color: #fff; font-size: 18px;"><i class="fa-solid fa-terminal" style="color: var(--primary);"></i> AIA Cloud Compiler</h3>
+          <!-- Language Selector -->
+          <select id="inAppLangSelect" onchange="changeInAppLanguage(this.value)" style="background: #040810; color: var(--primary); border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; font-weight: 600; font-size: 13px; outline: none; cursor: pointer;">
+            <option value="c">C Language (GCC)</option>
+            <option value="python">Python 3</option>
+            <option value="cpp">C++ (G++)</option>
+            <option value="java">Java (OpenJDK)</option>
+            <option value="javascript">JavaScript (Node)</option>
+            <option value="html">HTML/CSS/JS</option>
+          </select>
+        </div>
         <button class="close-modal" onclick="closeCompilerModal()">&times;</button>
       </div>
-      <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 18px;">
-        Naye tab me fast cloud execution open hoga jisme programiz jaisa real terminal, instant calculation aur error output milega:
-      </p>
 
-      <div class="compiler-grid">
-        <button class="compiler-btn" onclick="launchCompiler('c')">
-          <i class="fa-solid fa-terminal" style="color: #60a5fa;"></i>
-          <span>C Compiler (GCC)</span>
-        </button>
-
-        <button class="compiler-btn" onclick="launchCompiler('python')">
-          <i class="fa-brands fa-python" style="color: #38bdf8;"></i>
-          <span>Python 3 Online</span>
-        </button>
-
-        <button class="compiler-btn" onclick="launchCompiler('cpp')">
-          <i class="fa-solid fa-code" style="color: #818cf8;"></i>
-          <span>C++ (G++)</span>
-        </button>
-
-        <button class="compiler-btn" onclick="launchCompiler('java')">
-          <i class="fa-brands fa-java" style="color: #ef4444;"></i>
-          <span>Java Compiler</span>
-        </button>
-
-        <button class="compiler-btn" onclick="launchCompiler('javascript')">
-          <i class="fa-brands fa-js" style="color: #facc15;"></i>
-          <span>JavaScript (Node)</span>
-        </button>
-
-        <button class="compiler-btn" onclick="launchCompiler('html')">
-          <i class="fa-brands fa-html5" style="color: #f97316;"></i>
-          <span>HTML/CSS Live</span>
-        </button>
+      <!-- Live Compiler Frame Embedded Inside AIA -->
+      <div style="flex: 1; width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: #000;">
+        <iframe id="aiaWorkspaceFrame" src="" style="width: 100%; height: 100%; border: none;"></iframe>
       </div>
+      
     </div>
   </div>
 
@@ -668,18 +611,25 @@
   </div>
 
   <script>
-    // Real Instant Cloud Compilers (Zero CORS Lag, Real Input & Error Output)
-    const compilerURLs = {
-      c: "https://www.programiz.com/c-programming/online-compiler/",
-      python: "https://www.programiz.com/python-programming/online-compiler/",
-      cpp: "https://www.programiz.com/cpp-programming/online-compiler/",
-      java: "https://www.programiz.com/java-programming/online-compiler/",
-      javascript: "https://www.programiz.com/javascript/online-compiler/",
-      html: "https://www.programiz.com/html/online-compiler/"
+    // Embedded Online Compiler Engines for AIA Platform
+    const aiaCompilerEngines = {
+      c: "https://onecompiler.com/embed/c?theme=dark&hideLanguageSelection=true",
+      python: "https://onecompiler.com/embed/python?theme=dark&hideLanguageSelection=true",
+      cpp: "https://onecompiler.com/embed/cpp?theme=dark&hideLanguageSelection=true",
+      java: "https://onecompiler.com/embed/java?theme=dark&hideLanguageSelection=true",
+      javascript: "https://onecompiler.com/embed/javascript?theme=dark&hideLanguageSelection=true",
+      html: "https://onecompiler.com/embed/html?theme=dark&hideLanguageSelection=true"
     };
 
     function openCompilerModal() {
-      document.getElementById("compilerModal").style.display = "flex";
+      const modal = document.getElementById("compilerModal");
+      const iframe = document.getElementById("aiaWorkspaceFrame");
+      const currentLang = document.getElementById("inAppLangSelect").value;
+      
+      if (!iframe.src || iframe.src === "about:blank" || iframe.src === window.location.href) {
+        iframe.src = aiaCompilerEngines[currentLang];
+      }
+      modal.style.display = "flex";
     }
 
     function closeCompilerModal() {
@@ -690,12 +640,8 @@
       if (e.target.id === "compilerModal") closeCompilerModal();
     }
 
-    function launchCompiler(lang) {
-      const url = compilerURLs[lang];
-      if (url) {
-        window.open(url, "_blank");
-        closeCompilerModal();
-      }
+    function changeInAppLanguage(lang) {
+      document.getElementById("aiaWorkspaceFrame").src = aiaCompilerEngines[lang];
     }
 
     function filterCourses(category, btn) {
