@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atifex (AIA) | Beginner to Pro Tech Academy</title>
-  <meta name="description" content="Proprietary interactive learning platform with real compilers, structured notes & tests. Built by Mohammad Atif.">
+  <meta name="description" content="Proprietary interactive learning platform with dedicated compilers, structured notes & tests. Built by Mohammad Atif.">
 
   <!-- FontAwesome & Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -83,11 +83,21 @@
     .nav-cta {
       background: linear-gradient(135deg, #0284c7, #2563eb);
       color: #fff;
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 600;
       text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-cta:hover {
+      box-shadow: 0 4px 15px var(--primary-glow);
+      transform: translateY(-2px);
     }
 
     .container {
@@ -237,168 +247,86 @@
       padding-top: 12px;
     }
 
-    /* Reliable Cloud Multi-Compiler */
-    .playground-section {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 50px;
+    /* Modal for Selecting Language */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 300;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
     }
 
-    .playground-header {
+    .modal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      max-width: 580px;
+      width: 100%;
+      padding: 26px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+
+    .modal-header h3 {
+      font-size: 19px;
+      color: #fff;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .close-modal:hover {
+      color: #fff;
+    }
+
+    .compiler-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 12px;
     }
 
-    .playground-header h2 {
-      font-size: 18px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .playground-controls {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .lang-select {
-      background: #040810;
-      color: var(--primary);
+    .compiler-btn {
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      outline: none;
+      border-radius: 12px;
+      padding: 16px 12px;
+      color: #fff;
+      text-align: center;
       cursor: pointer;
-    }
-
-    .run-btn {
-      background: #22c55e;
-      color: #032512;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: opacity 0.2s;
-    }
-
-    .run-btn:hover {
-      opacity: 0.9;
-    }
-
-    .playground-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    @media (max-width: 720px) {
-      .playground-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .editor-wrapper {
       display: flex;
       flex-direction: column;
-    }
-
-    .editor-label {
-      font-size: 12px;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
       font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-      display: flex;
-      justify-content: space-between;
+      transition: all 0.2s;
     }
 
-    .smart-tag {
-      font-size: 11px;
-      color: #38bdf8;
+    .compiler-btn i {
+      font-size: 28px;
+    }
+
+    .compiler-btn:hover {
+      border-color: var(--primary);
       background: rgba(56, 189, 248, 0.1);
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
-    .editor-box textarea {
-      width: 100%;
-      height: 290px;
-      background: #040810;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px;
-      color: #38bdf8;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      line-height: 1.5;
-      resize: vertical;
-      outline: none;
-      tab-size: 4;
-    }
-
-    .terminal-container {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .terminal-box {
-      width: 100%;
-      height: 200px;
-      background: #040810;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
-      line-height: 1.5;
-      color: #4ade80;
-      overflow-y: auto;
-      white-space: pre-wrap;
-    }
-
-    .stdin-box {
-      width: 100%;
-      height: 75px;
-      background: #080e1a;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
-      color: #cbd5e1;
-      resize: none;
-      outline: none;
-    }
-
-    .preview-box {
-      display: none;
-      width: 100%;
-      height: 290px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .preview-box iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
+      transform: translateY(-3px);
     }
 
     /* Dedicated Full-Page Learning Mode */
@@ -553,14 +481,14 @@
         <div class="brand-logo"><i class="fa-solid fa-graduation-cap"></i></div>
         <span>Atifex</span>
       </a>
-      <a href="#playground" class="nav-cta"><i class="fa-solid fa-play"></i> Real Compiler</a>
+      <button class="nav-cta" onclick="openCompilerModal()"><i class="fa-solid fa-play"></i> Real Compiler</button>
     </nav>
 
     <div class="container">
       <header class="hero">
         <div class="badge"><i class="fa-solid fa-bolt"></i> Atifex Interactive Academy (AIA) • Beginner Friendly</div>
         <h1>Master Real Internet Skills <span>From Zero</span></h1>
-        <p>0-level detailed study notes, real interactive coding compiler, and self-evaluation tests.</p>
+        <p>0-level detailed study notes, dedicated code editors, and self-evaluation tests.</p>
 
         <div class="filter-tabs">
           <button class="tab-btn active" onclick="filterCourses('all', this)">All Courses</button>
@@ -663,58 +591,55 @@
         </div>
       </div>
 
-      <!-- Real Working Multi-Language Online Compiler Section with Smart Editor -->
-      <section class="playground-section" id="playground">
-        <div class="playground-header">
-          <h2><i class="fa-solid fa-laptop-code" style="color: var(--primary);"></i> Real Multi-Language Compiler & Runner</h2>
-          <div class="playground-controls">
-            <select class="lang-select" id="compilerSelect" onchange="switchLanguage()">
-              <option value="c">C (GCC Compiler)</option>
-              <option value="python">Python 3</option>
-              <option value="cpp">C++ (G++)</option>
-              <option value="java">Java (OpenJDK)</option>
-              <option value="html">HTML / CSS / JS</option>
-            </select>
-            <button class="run-btn" id="runCodeBtn" onclick="runRealCode()"><i class="fa-solid fa-play"></i> Run Code</button>
-          </div>
-        </div>
-
-        <div class="playground-grid">
-          <div class="editor-wrapper">
-            <span class="editor-label">
-              <span>Code Editor:</span>
-              <span class="smart-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Auto-Bracket & Tab Enabled</span>
-            </span>
-            <div class="editor-box">
-              <textarea id="universalCodeEditor" spellcheck="false"></textarea>
-            </div>
-          </div>
-          
-          <div class="editor-wrapper">
-            <span class="editor-label">
-              <span>Terminal & Compiler Output:</span>
-              <span id="compilerStatus" style="color: var(--primary); font-size: 11px;">Ready</span>
-            </span>
-
-            <div class="terminal-container" id="terminalWrapper">
-              <div class="terminal-box" id="terminalOutput">&gt; Press "Run Code" to compile and execute...</div>
-              <div>
-                <span class="editor-label" style="margin-bottom: 3px;">Program Input (stdin - e.g. 10 20):</span>
-                <textarea class="stdin-box" id="programStdin" placeholder="10 20"></textarea>
-              </div>
-            </div>
-
-            <div class="preview-box" id="htmlPreviewContainer">
-              <iframe id="htmlPreviewFrame"></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <footer>
         <p>© 2026 <strong>Atifex Interactive Academy (AIA)</strong>. Founded by Mohammad Atif.</p>
         <p style="font-size: 12px; margin-top: 6px;">Zero distraction, self-hosted notes and quizzes for serious creators & developers.</p>
       </footer>
+    </div>
+  </div>
+
+  <!-- Real Compiler Language Selection Modal -->
+  <div class="modal-overlay" id="compilerModal" onclick="closeCompilerModalOutside(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-terminal" style="color: var(--primary);"></i> Select Compiler Language</h3>
+        <button class="close-modal" onclick="closeCompilerModal()">&times;</button>
+      </div>
+      <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 18px;">
+        Naye tab me fast cloud execution open hoga jisme programiz jaisa real terminal, instant calculation aur error output milega:
+      </p>
+
+      <div class="compiler-grid">
+        <button class="compiler-btn" onclick="launchCompiler('c')">
+          <i class="fa-solid fa-terminal" style="color: #60a5fa;"></i>
+          <span>C Compiler (GCC)</span>
+        </button>
+
+        <button class="compiler-btn" onclick="launchCompiler('python')">
+          <i class="fa-brands fa-python" style="color: #38bdf8;"></i>
+          <span>Python 3 Online</span>
+        </button>
+
+        <button class="compiler-btn" onclick="launchCompiler('cpp')">
+          <i class="fa-solid fa-code" style="color: #818cf8;"></i>
+          <span>C++ (G++)</span>
+        </button>
+
+        <button class="compiler-btn" onclick="launchCompiler('java')">
+          <i class="fa-brands fa-java" style="color: #ef4444;"></i>
+          <span>Java Compiler</span>
+        </button>
+
+        <button class="compiler-btn" onclick="launchCompiler('javascript')">
+          <i class="fa-brands fa-js" style="color: #facc15;"></i>
+          <span>JavaScript (Node)</span>
+        </button>
+
+        <button class="compiler-btn" onclick="launchCompiler('html')">
+          <i class="fa-brands fa-html5" style="color: #f97316;"></i>
+          <span>HTML/CSS Live</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -743,156 +668,35 @@
   </div>
 
   <script>
-    // Smart Editor: Auto Close Brackets & Tab Indentation
-    const editor = document.getElementById("universalCodeEditor");
-
-    editor.addEventListener("keydown", function (e) {
-      const openPairs = { '{': '}', '(': ')', '[': ']', '"': '"', "'": "'" };
-      const closePairs = ['}', ')', ']', '"', "'"];
-
-      const start = this.selectionStart;
-      const end = this.selectionEnd;
-
-      if (e.key === "Tab") {
-        e.preventDefault();
-        this.setRangeText("    ", start, end, "end");
-        return;
-      }
-
-      if (openPairs[e.key]) {
-        e.preventDefault();
-        const openChar = e.key;
-        const closeChar = openPairs[openChar];
-        this.setRangeText(openChar + closeChar, start, end, "end");
-        this.selectionStart = this.selectionEnd = start + 1;
-        return;
-      }
-
-      if (closePairs.includes(e.key)) {
-        if (this.value.charAt(start) === e.key) {
-          e.preventDefault();
-          this.selectionStart = this.selectionEnd = start + 1;
-          return;
-        }
-      }
-
-      if (e.key === "Backspace") {
-        const prevChar = this.value.charAt(start - 1);
-        const nextChar = this.value.charAt(start);
-        if (openPairs[prevChar] && openPairs[prevChar] === nextChar) {
-          e.preventDefault();
-          this.setRangeText("", start - 1, start + 1, "end");
-          this.selectionStart = this.selectionEnd = start - 1;
-          return;
-        }
-      }
-
-      if (e.key === "Enter") {
-        const prevChar = this.value.charAt(start - 1);
-        const nextChar = this.value.charAt(start);
-        if (prevChar === '{' && nextChar === '}') {
-          e.preventDefault();
-          this.setRangeText("\n    \n", start, end, "end");
-          this.selectionStart = this.selectionEnd = start + 5;
-          return;
-        }
-      }
-    });
-
-    // Piston Language Configuration (Open, Zero-CORS, Free)
-    const pistonLangs = {
-      c: { language: "c", version: "10.2.0", template: `#include <stdio.h>\n\nint main() {\n    int a, b, sum;\n    printf("Enter two numbers: ");\n    scanf("%d %d", &a, &b);\n    sum = a + b;\n    printf("Result: %d + %d = %d\\n", a, b, sum);\n    return 0;\n}`, defaultInput: "10 20" },
-      python: { language: "python", version: "3.10.0", template: `# Python Sum of Two Numbers\na, b = map(int, input().split())\nprint(f"Sum = {a + b}")`, defaultInput: "15 35" },
-      cpp: { language: "cpp", version: "10.2.0", template: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int a, b;\n    cin >> a >> b;\n    cout << "Sum: " << (a + b) << endl;\n    return 0;\n}`, defaultInput: "5 25" },
-      java: { language: "java", version: "15.0.2", template: `import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt();\n        int b = sc.nextInt();\n        System.out.println("Sum: " + (a + b));\n    }\n}`, defaultInput: "30 70" },
-      html: { language: null, version: null, template: `<div style="background: #0f172a; padding: 20px; border-radius: 12px; border: 1px solid #38bdf8; text-align: center;">\n  <h2 style="color: #38bdf8;">Welcome to Atifex!</h2>\n  <p style="color: #94a3b8; font-size: 14px;">Edit HTML/CSS and click Run Code.</p>\n  <button style="background: #22c55e; color: #022c22; font-weight: bold; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Test Button</button>\n</div>`, defaultInput: "" }
+    // Real Instant Cloud Compilers (Zero CORS Lag, Real Input & Error Output)
+    const compilerURLs = {
+      c: "https://www.programiz.com/c-programming/online-compiler/",
+      python: "https://www.programiz.com/python-programming/online-compiler/",
+      cpp: "https://www.programiz.com/cpp-programming/online-compiler/",
+      java: "https://www.programiz.com/java-programming/online-compiler/",
+      javascript: "https://www.programiz.com/javascript/online-compiler/",
+      html: "https://www.programiz.com/html/online-compiler/"
     };
 
-    function switchLanguage() {
-      const selected = document.getElementById("compilerSelect").value;
-      const data = pistonLangs[selected];
-      document.getElementById("universalCodeEditor").value = data.template;
-      document.getElementById("programStdin").value = data.defaultInput;
-
-      if (selected === "html") {
-        document.getElementById("terminalWrapper").style.display = "none";
-        document.getElementById("htmlPreviewContainer").style.display = "block";
-      } else {
-        document.getElementById("terminalWrapper").style.display = "flex";
-        document.getElementById("htmlPreviewContainer").style.display = "none";
-        document.getElementById("terminalOutput").innerText = `> Switched to ${selected.toUpperCase()}. Press 'Run Code' to compile.`;
-        document.getElementById("terminalOutput").style.color = "#4ade80";
-      }
+    function openCompilerModal() {
+      document.getElementById("compilerModal").style.display = "flex";
     }
 
-    async function runRealCode() {
-      const lang = document.getElementById("compilerSelect").value;
-      const code = document.getElementById("universalCodeEditor").value;
-      const stdin = document.getElementById("programStdin").value;
-      const statusEl = document.getElementById("compilerStatus");
-      const terminal = document.getElementById("terminalOutput");
-
-      if (lang === "html") {
-        const frame = document.getElementById("htmlPreviewFrame").contentWindow.document;
-        frame.open();
-        frame.write(code);
-        frame.close();
-        return;
-      }
-
-      statusEl.innerText = "Compiling & Running...";
-      statusEl.style.color = "#facc15";
-      terminal.innerText = "> Submitting code to Real GCC / Runtime Engine...\n";
-      terminal.style.color = "#cbd5e1";
-
-      const target = pistonLangs[lang];
-
-      try {
-        const response = await fetch("https://emkc.org/api/v2/piston/execute", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            language: target.language,
-            version: target.version,
-            files: [
-              {
-                content: code
-              }
-            ],
-            stdin: stdin
-          })
-        });
-
-        const data = await response.json();
-        
-        // Check compilation failure / errors
-        if (data.compile && data.compile.code !== 0) {
-          statusEl.innerText = "Compilation Error";
-          statusEl.style.color = "#ef4444";
-          terminal.style.color = "#f87171";
-          terminal.innerText = `[COMPILATION ERROR / SYNTAX ERROR]\n\n${data.compile.output || data.compile.stderr}`;
-        } else if (data.run && data.run.stderr) {
-          statusEl.innerText = "Runtime Error";
-          statusEl.style.color = "#ef4444";
-          terminal.style.color = "#f87171";
-          terminal.innerText = `[RUNTIME ERROR]\n\n${data.run.stderr}`;
-        } else if (data.run) {
-          statusEl.innerText = "Executed";
-          statusEl.style.color = "#22c55e";
-          terminal.style.color = "#4ade80";
-          terminal.innerText = `[PROGRAM OUTPUT]\n\n${data.run.output || "Program ran with 0 output."}`;
-        }
-      } catch (err) {
-        statusEl.innerText = "Execution Fallback";
-        statusEl.style.color = "#f97316";
-        terminal.style.color = "#f87171";
-        terminal.innerText = `[CONNECTION ERROR]\nServer response: ${err.message}`;
-      }
+    function closeCompilerModal() {
+      document.getElementById("compilerModal").style.display = "none";
     }
 
-    switchLanguage();
+    function closeCompilerModalOutside(e) {
+      if (e.target.id === "compilerModal") closeCompilerModal();
+    }
+
+    function launchCompiler(lang) {
+      const url = compilerURLs[lang];
+      if (url) {
+        window.open(url, "_blank");
+        closeCompilerModal();
+      }
+    }
 
     function filterCourses(category, btn) {
       document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
