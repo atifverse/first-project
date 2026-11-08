@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atifex | Master Coding, Digital Skills & Internet Economy</title>
-  <meta name="description" content="Next-gen tech learning platform. Learn Python, Web Dev, Digital Marketing, and Modern Internet Skills.">
-  
+  <title>Atifex | Master Internet Trades, Coding & Modern Tech</title>
+  <meta name="description" content="Proprietary interactive learning platform for Coding, Digital Skills & Internet Architecture. Built by Mohammad Atif.">
+
   <!-- FontAwesome & Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  
+
   <style>
     :root {
-      --bg: #090d16;
-      --surface: #111827;
-      --card-bg: rgba(17, 24, 39, 0.7);
+      --bg: #070b13;
+      --surface: #0f172a;
+      --card-bg: rgba(15, 23, 42, 0.75);
       --border: rgba(255, 255, 255, 0.08);
       --primary: #38bdf8;
       --primary-glow: rgba(56, 189, 248, 0.25);
-      --accent: #6366f1;
+      --accent: #818cf8;
+      --success: #22c55e;
+      --danger: #ef4444;
       --text: #f8fafc;
       --text-muted: #94a3b8;
     }
@@ -47,7 +49,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(9, 13, 22, 0.85);
+      background: rgba(7, 11, 19, 0.88);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
       padding: 14px 20px;
@@ -62,21 +64,21 @@
       gap: 10px;
       font-size: 20px;
       font-weight: 800;
-      letter-spacing: -0.5px;
       color: #fff;
       text-decoration: none;
     }
 
     .brand-logo {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
       background: linear-gradient(135deg, #0284c7, #6366f1);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+      font-size: 17px;
       color: #fff;
+      box-shadow: 0 4px 15px var(--primary-glow);
     }
 
     .nav-cta {
@@ -96,7 +98,7 @@
 
     /* Container */
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 40px 16px 80px;
     }
@@ -104,7 +106,7 @@
     /* Hero */
     .hero {
       text-align: center;
-      padding: 20px 0 40px;
+      padding: 10px 0 35px;
     }
 
     .badge {
@@ -118,15 +120,15 @@
       border-radius: 30px;
       font-size: 13px;
       font-weight: 600;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .hero h1 {
-      font-size: clamp(32px, 5vw, 46px);
+      font-size: clamp(32px, 5vw, 48px);
       font-weight: 800;
       letter-spacing: -1px;
       line-height: 1.2;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .hero h1 span {
@@ -137,12 +139,12 @@
 
     .hero p {
       color: var(--text-muted);
-      font-size: 16px;
-      max-width: 600px;
-      margin: 0 auto 28px;
+      font-size: 15.5px;
+      max-width: 620px;
+      margin: 0 auto 26px;
     }
 
-    /* Track Filter */
+    /* Course Filtering */
     .filter-tabs {
       display: flex;
       justify-content: center;
@@ -157,7 +159,7 @@
       color: var(--text-muted);
       padding: 8px 18px;
       border-radius: 20px;
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s;
@@ -169,12 +171,12 @@
       border-color: var(--primary);
     }
 
-    /* Course Cards Grid */
+    /* Course Grid */
     .courses-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 16px;
-      margin-bottom: 50px;
+      margin-bottom: 45px;
     }
 
     .course-card {
@@ -239,14 +241,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 600;
       color: var(--primary);
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       padding-top: 12px;
     }
 
-    /* Live Interactive Code Playground */
+    /* Live Playground Section */
     .playground-section {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -260,6 +262,8 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .playground-header h2 {
@@ -282,6 +286,11 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      transition: opacity 0.2s;
+    }
+
+    .run-btn:hover {
+      opacity: 0.9;
     }
 
     .playground-grid {
@@ -290,7 +299,7 @@
       gap: 12px;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
       .playground-grid {
         grid-template-columns: 1fr;
       }
@@ -298,7 +307,7 @@
 
     .editor-box textarea {
       width: 100%;
-      height: 180px;
+      height: 200px;
       background: #040810;
       border: 1px solid var(--border);
       border-radius: 10px;
@@ -312,18 +321,18 @@
 
     .preview-box iframe {
       width: 100%;
-      height: 180px;
+      height: 200px;
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 10px;
     }
 
-    /* Learning Modal */
+    /* Modal Learning Environment */
     .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(8px);
       z-index: 200;
       justify-content: center;
@@ -335,48 +344,134 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 18px;
-      max-width: 540px;
+      max-width: 680px;
       width: 100%;
-      padding: 24px;
       max-height: 90vh;
-      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
     }
 
     .modal-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 16px;
+      padding: 20px 24px;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 12px;
     }
 
     .close-modal {
       background: none;
       border: none;
       color: var(--text-muted);
-      font-size: 24px;
+      font-size: 26px;
       cursor: pointer;
     }
 
-    .roadmap-track {
-      list-style: none;
-      margin: 14px 0;
+    .close-modal:hover {
+      color: #fff;
     }
 
-    .roadmap-track li {
-      position: relative;
-      padding-left: 22px;
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    .lesson-section {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .lesson-section h4 {
+      color: var(--primary);
+      font-size: 15px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lesson-text {
       font-size: 13.5px;
       color: #cbd5e1;
-      margin-bottom: 8px;
+      line-height: 1.6;
+      margin-bottom: 12px;
     }
 
-    .roadmap-track li::before {
-      content: "➔";
-      position: absolute;
-      left: 0;
-      color: var(--primary);
+    .code-block {
+      background: #040810;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      color: #34d399;
+      overflow-x: auto;
+      margin-bottom: 10px;
+    }
+
+    /* Quiz Container */
+    .quiz-box {
+      background: rgba(56, 189, 248, 0.04);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 20px;
+    }
+
+    .quiz-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .quiz-opt-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: #e2e8f0;
+      text-align: left;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .quiz-opt-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--primary);
+    }
+
+    .quiz-opt-btn.correct {
+      background: rgba(34, 197, 94, 0.2) !important;
+      border-color: #22c55e !important;
+      color: #4ade80 !important;
+    }
+
+    .quiz-opt-btn.wrong {
+      background: rgba(239, 68, 68, 0.2) !important;
+      border-color: #ef4444 !important;
+      color: #f87171 !important;
+    }
+
+    .quiz-feedback {
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      display: none;
     }
 
     /* Footer */
@@ -397,21 +492,21 @@
       <div class="brand-logo"><i class="fa-solid fa-graduation-cap"></i></div>
       <span>Atifex</span>
     </a>
-    <a href="#playground" class="nav-cta"><i class="fa-solid fa-play"></i> Try Code Editor</a>
+    <a href="#playground" class="nav-cta"><i class="fa-solid fa-code"></i> Live Code Editor</a>
   </nav>
 
   <div class="container">
 
     <!-- Hero Section -->
     <header class="hero">
-      <div class="badge"><i class="fa-solid fa-bolt"></i> Future of Internet Learning</div>
-      <h1>Empowering Everyone with <span>Real-World Skills</span></h1>
-      <p>From high-performance programming to digital marketing and AI automation—learn practical internet skills with interactive paths.</p>
+      <div class="badge"><i class="fa-solid fa-bolt"></i> Atifex Interactive Academy</div>
+      <h1>Master Real Skills With <span>Notes & Quizzes</span></h1>
+      <p>Direct study notes, hand-picked core topics, and instant self-evaluation tests — no external redirects.</p>
 
       <!-- Category Filter Tabs -->
       <div class="filter-tabs">
-        <button class="tab-btn active" onclick="filterCourses('all', this)">All Disciplines</button>
-        <button class="tab-btn" onclick="filterCourses('coding', this)">Programming</button>
+        <button class="tab-btn active" onclick="filterCourses('all', this)">All Courses</button>
+        <button class="tab-btn" onclick="filterCourses('coding', this)">Languages & CS</button>
         <button class="tab-btn" onclick="filterCourses('marketing', this)">Digital Growth</button>
         <button class="tab-btn" onclick="filterCourses('tech', this)">Modern Tech & AI</button>
       </div>
@@ -420,18 +515,34 @@
     <!-- Course & Skill Tracks -->
     <div class="courses-grid" id="coursesGrid">
       
+      <!-- C Language Track -->
+      <div class="course-card" data-category="coding" onclick="openSkill('c')">
+        <div>
+          <div class="card-top">
+            <div class="icon-box" style="color: #60a5fa;"><i class="fa-solid fa-terminal"></i></div>
+            <span class="course-level">Core Foundation</span>
+          </div>
+          <h3>C Language & Memory</h3>
+          <p>Memory allocations, pointers, discrete architecture, and compiler concepts with notes & quiz.</p>
+        </div>
+        <div class="card-footer">
+          <span>Read Notes & Test</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+
       <!-- Python Track -->
       <div class="course-card" data-category="coding" onclick="openSkill('python')">
         <div>
           <div class="card-top">
             <div class="icon-box" style="color: #38bdf8;"><i class="fa-brands fa-python"></i></div>
-            <span class="course-level">Beginner to Pro</span>
+            <span class="course-level">Automation & Logic</span>
           </div>
-          <h3>Python & Automation</h3>
-          <p>Master syntax, problem solving, data scripts, and smart bots from ground up.</p>
+          <h3>Python Programming</h3>
+          <p>Data structures, automation scripting, clean functions, and problem solving notes.</p>
         </div>
         <div class="card-footer">
-          <span>Explore Syllabus</span>
+          <span>Read Notes & Test</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
       </div>
@@ -441,13 +552,13 @@
         <div>
           <div class="card-top">
             <div class="icon-box" style="color: #f97316;"><i class="fa-brands fa-html5"></i></div>
-            <span class="course-level">Core Foundation</span>
+            <span class="course-level">Full Stack</span>
           </div>
-          <h3>Full-Stack Web Dev</h3>
-          <p>HTML5, Modern Responsive CSS, JavaScript DOM, and full deployment on public servers.</p>
+          <h3>Web Development & JS</h3>
+          <p>Semantic HTML5, CSS Grid/Flexbox, JavaScript events, and responsive mobile architecture.</p>
         </div>
         <div class="card-footer">
-          <span>Explore Syllabus</span>
+          <span>Read Notes & Test</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
       </div>
@@ -457,29 +568,29 @@
         <div>
           <div class="card-top">
             <div class="icon-box" style="color: #10b981;"><i class="fa-solid fa-chart-line"></i></div>
-            <span class="course-level">Career Track</span>
+            <span class="course-level">Internet Business</span>
           </div>
           <h3>Digital Marketing & SEO</h3>
-          <p>Learn Search Engine Optimization, Google ranking, Meta Ads, and organic content growth.</p>
+          <p>Search ranking strategies, crawl indexing, Google Search Console audits, and conversion funnels.</p>
         </div>
         <div class="card-footer">
-          <span>Explore Syllabus</span>
+          <span>Read Notes & Test</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
       </div>
 
-      <!-- Content & Media Track -->
+      <!-- Content Creation Track -->
       <div class="course-card" data-category="marketing" onclick="openSkill('media')">
         <div>
           <div class="card-top">
             <div class="icon-box" style="color: #ef4444;"><i class="fa-solid fa-video"></i></div>
-            <span class="course-level">High Demand</span>
+            <span class="course-level">High Audience</span>
           </div>
-          <h3>Content Creation & Branding</h3>
-          <p>Short-form video editing, visual storytelling, personal branding, and audience retention.</p>
+          <h3>Content Creation & Video</h3>
+          <p>Hook formulas, visual storytelling, editing pacing, and multi-channel audience building.</p>
         </div>
         <div class="card-footer">
-          <span>Explore Syllabus</span>
+          <span>Read Notes & Test</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
       </div>
@@ -488,30 +599,14 @@
       <div class="course-card" data-category="tech" onclick="openSkill('ai')">
         <div>
           <div class="card-top">
-            <div class="icon-box" style="color: #a855f7;"><i class="fa-solid fa-robot"></i></div>
-            <span class="course-level">Next-Gen</span>
+            <div class="icon-box" style="color: #a855f7;"><i class="fa-solid fa-brain"></i></div>
+            <span class="course-level">Modern AI</span>
           </div>
           <h3>AI Workflows & APIs</h3>
-          <p>Building automated apps using generative AI SDKs, prompt architecture, and tools.</p>
+          <p>Generative AI prompting, REST endpoint integration, and intelligent script automation.</p>
         </div>
         <div class="card-footer">
-          <span>Explore Syllabus</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </div>
-
-      <!-- C / Fundamentals Track -->
-      <div class="course-card" data-category="coding" onclick="openSkill('c')">
-        <div>
-          <div class="card-top">
-            <div class="icon-box" style="color: #64748b;"><i class="fa-solid fa-terminal"></i></div>
-            <span class="course-level">CS Fundamentals</span>
-          </div>
-          <h3>C & Computer Logic</h3>
-          <p>Memory structures, pointers, discrete logic, and the roots of computer science.</p>
-        </div>
-        <div class="card-footer">
-          <span>Explore Syllabus</span>
+          <span>Read Notes & Test</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
       </div>
@@ -521,14 +616,16 @@
     <!-- Live Code Playground Section -->
     <section class="playground-section" id="playground">
       <div class="playground-header">
-        <h2><i class="fa-solid fa-code" style="color: var(--primary);"></i> In-Browser Live HTML Playground</h2>
+        <h2><i class="fa-solid fa-code" style="color: var(--primary);"></i> In-Browser Live HTML & CSS Playground</h2>
         <button class="run-btn" onclick="executeLiveCode()"><i class="fa-solid fa-play"></i> Run Code</button>
       </div>
       <div class="playground-grid">
         <div class="editor-box">
-          <textarea id="codeEditor" spellcheck="false">&lt;h2 style="color: #0284c7;"&gt;Welcome to Atifex!&lt;/h2&gt;
-&lt;p style="color: #334155;"&gt;Edit this text and click Run Code.&lt;/p&gt;
-&lt;button style="background: #0284c7; color: white; border: none; padding: 8px 14px; border-radius: 6px;"&gt;Click Me&lt;/button&gt;</textarea>
+          <textarea id="codeEditor" spellcheck="false">&lt;div style="background: #0f172a; padding: 20px; border-radius: 12px; border: 1px solid #38bdf8; text-align: center;"&gt;
+  &lt;h2 style="color: #38bdf8; margin-bottom: 8px;"&gt;Hello from Atifex!&lt;/h2&gt;
+  &lt;p style="color: #94a3b8; font-size: 14px;"&gt;Start experimenting with code directly inside your browser.&lt;/p&gt;
+  &lt;button style="background: #22c55e; color: #022c22; font-weight: bold; border: none; padding: 8px 16px; border-radius: 6px; margin-top: 10px; cursor: pointer;"&gt;Test Interactive Button&lt;/button&gt;
+&lt;/div&gt;</textarea>
         </div>
         <div class="preview-box">
           <iframe id="liveFrame"></iframe>
@@ -538,32 +635,28 @@
 
     <!-- Footer -->
     <footer>
-      <p>© 2026 <strong>Atifex Platform</strong>. Founded by Mohammad Atif.</p>
-      <p style="font-size: 12px; margin-top: 6px;">Empowering students and creators with practical internet trades.</p>
+      <p>© 2026 <strong>Atifex Academy</strong>. Platform Founded by Mohammad Atif.</p>
+      <p style="font-size: 12px; margin-top: 6px;">Zero distraction, self-hosted notes and quizzes for serious creators & developers.</p>
     </footer>
 
   </div>
 
-  <!-- Interactive Curriculum Modal -->
+  <!-- Interactive Curriculum & In-Built Notes Modal -->
   <div class="modal-overlay" id="skillModal" onclick="closeModalOutside(event)">
     <div class="modal-box">
       <div class="modal-top">
-        <h3 id="modalTitle" style="color: #fff; font-size: 19px;">Syllabus Overview</h3>
+        <h3 id="modalTitle" style="color: #fff; font-size: 18px; font-weight: 700;"></h3>
         <button class="close-modal" onclick="closeModal()">&times;</button>
       </div>
-      <p id="modalDesc" style="color: var(--text-muted); font-size: 13.5px;"></p>
       
-      <h4 style="color: var(--primary); font-size: 14px; margin-top: 16px;">Core Learning Milestones</h4>
-      <ul class="roadmap-track" id="modalList"></ul>
-
-      <div style="margin-top: 20px;">
-        <a id="modalDocsLink" href="#" target="_blank" class="nav-cta" style="display: block; text-align: center;">Official Reference Documentation</a>
+      <div class="modal-body" id="modalBody">
+        <!-- Notes, Code, and Quiz dynamically injected here -->
       </div>
     </div>
   </div>
 
   <script>
-    // Live Playground Logic
+    // Live In-Browser Playground Execution
     function executeLiveCode() {
       const code = document.getElementById("codeEditor").value;
       const frame = document.getElementById("liveFrame").contentWindow.document;
@@ -571,7 +664,6 @@
       frame.write(code);
       frame.close();
     }
-    // Run initial code on load
     window.onload = executeLiveCode;
 
     // Filter Logic
@@ -589,93 +681,268 @@
       });
     }
 
-    // Modal Curriculum Data
-    const skillData = {
-      python: {
-        title: "Python & Automation Engineering",
-        desc: "Python internet scripting, data structures, and automation bots sikhne ka core blueprint.",
-        milestones: [
-          "Syntax, Core Data Structures (Lists, Sets, Dictionaries)",
-          "Control Logic, List Comprehensions & Error Handling",
-          "Working with APIs, JSON, and Web Scrapers",
-          "Building Automated Bot Assistants"
-        ],
-        docs: "https://docs.python.org/3/"
-      },
-      web: {
-        title: "Modern Web Systems",
-        desc: "Web applications create karna, design responsive banana aur cloud hosting seekhna.",
-        milestones: [
-          "HTML5 Semantic Architecture & SEO Meta Rules",
-          "Modern CSS Flexbox, Grid & Clean Dark Theming",
-          "JavaScript Async Logic, Events & DOM Manipulation",
-          "Version Control with Git & Production Deployments"
-        ],
-        docs: "https://developer.mozilla.org/en-US/"
-      },
-      marketing: {
-        title: "Digital Growth & Organic Reach",
-        desc: "Internet traffic master karna, Google rank 1 par aana aur campaigns optimize karna.",
-        milestones: [
-          "Keyword Architecture & Search Engine Optimization (SEO)",
-          "Google Search Console Indexing & Technical Audits",
-          "High-Conversion Copywriting & Funnel Systems",
-          "Paid Ads Targeting (Meta & Search Engine Ads)"
-        ],
-        docs: "https://developers.google.com/search/docs"
-      },
-      media: {
-        title: "Digital Media & Brand Engineering",
-        desc: "Content creation pipeline, modern storytelling aur digital presence build karna.",
-        milestones: [
-          "Retention-Driven Scripting for Short & Long Videos",
-          "Professional Editing Pacing & Visual Grading",
-          "Thumbnail Architecture & Click-Through Rate (CTR)",
-          "Multi-Platform Distribution (YouTube, Instagram)"
-        ],
-        docs: "https://creatoracademy.youtube.com/"
-      },
-      ai: {
-        title: "Artificial Intelligence Architecture",
-        desc: "State-of-the-art AI models ko software solutions ke sath integrate karna.",
-        milestones: [
-          "Prompt Engineering & Context Design",
-          "Integrating AI APIs (Gemini, Claude, OpenAI)",
-          "Building Knowledge Assistants & Chat Agents",
-          "Deploying Cloud AI Integrations"
-        ],
-        docs: "https://ai.google.dev/"
-      },
+    // Proprietary In-Built Notes & Quizzes Data Store
+    const courseContent = {
       c: {
-        title: "Computer Logic & C Programming",
-        desc: "Computer hardware kaise kaam karta hai aur low-level memory control master karna.",
-        milestones: [
-          "Data Types, Bitwise Logic & Control Flow",
-          "Memory Models, Pointers & Array Allocation",
-          "Data Structures: Linked Lists, Stacks, Queues",
-          "Algorithmic Thinking & Complexity Analysis"
+        title: "C Language & Computer Logic — Atifex Notes",
+        lessons: [
+          {
+            heading: "1. Core Concept: Memory & Variables",
+            text: "C ek compiled aur structured programming language hai. Isme har variable memory me ek fixed byte space occupy karta hai (jaise int = 4 bytes, char = 1 byte). Pointer ek special variable hota hai jo kisi doosre variable ka memory address (&) store karta hai.",
+            code: `#include <stdio.h>
+
+int main() {
+    int age = 19;
+    int *ptr = &age; // Ptr holds the memory address of age
+
+    printf("Value: %d\\n", age);
+    printf("Memory Address: %p\\n", ptr);
+    return 0;
+}`
+          },
+          {
+            heading: "2. Logic & Control Structures",
+            text: "Conditions check karne ke liye `if-else` aur `switch` statements use hote hain. Loops (`for`, `while`) repetitive tasks ko automate karte hain.",
+            code: `for (int i = 1; i <= 5; i++) {
+    printf("Execution Step: %d\\n", i);
+}`
+          }
         ],
-        docs: "https://en.cppreference.com/w/c"
+        quiz: {
+          question: "C language me kisi variable ka memory address lene ke liye kaunsa operator use hota hai?",
+          options: [
+            "* (Asterisk)",
+            "& (Ampersand)",
+            "# (Hash)",
+            "% (Modulo)"
+          ],
+          correct: 1,
+          explanation: "Sahi Jawab! '&' operator (address-of operator) variable ka exact memory address return karta hai."
+        }
+      },
+
+      python: {
+        title: "Python Programming & Scripts — Atifex Notes",
+        lessons: [
+          {
+            heading: "1. Pythonic Syntax & Data Structures",
+            text: "Python dynamically typed language hai, jisme data types manually declare nahi karne padte. Main collections: List (ordered, mutable), Tuple (immutable), Dictionary (key-value pair).",
+            code: `# Atifex Python Structure Example
+skills = ["C", "Python", "WebDev"]
+skills.append("AI APIs")
+
+user_profile = {
+    "name": "Mohammad Atif",
+    "track": "Computer Applications",
+    "skills_count": len(skills)
+}
+print(user_profile)`
+          },
+          {
+            heading: "2. Functions & Automation Logic",
+            text: "Functions ko `def` keyword se define kiya jaata hai. Yeh code reusability aur modular scripts banane ke liye sabse important concept hai.",
+            code: `def calculate_growth(initial, rate):
+    return initial * (1 + rate)
+
+print("Projected Value:", calculate_growth(100, 0.20))`
+          }
+        ],
+        quiz: {
+          question: "Python me kaunsa data type 'Immutable' (change na hone wala) hota hai?",
+          options: [
+            "List []",
+            "Dictionary {}",
+            "Tuple ()",
+            "Set {}"
+          ],
+          correct: 2,
+          explanation: "Sahi Jawab! Tuple ek baar create hone ke baad modify nahi kiya ja sakta (immutable)."
+        }
+      },
+
+      web: {
+        title: "Full-Stack Web Architecture — Atifex Notes",
+        lessons: [
+          {
+            heading: "1. Modern Semantic HTML5 & Mobile Viewport",
+            text: "Website ko phone friendly banane ke liye `<meta name='viewport' content='width=device-width, initial-scale=1.0'>` mandatory hai. Content ko organize karne ke liye `<header>`, `<nav>`, `<section>`, `<footer>` use karein.",
+            code: `<!-- Proper HTML5 Structure -->
+<header>
+  <h1>Platform Title</h1>
+</header>
+<main>
+  <p>Responsive Content Area</p>
+</main>`
+          },
+          {
+            heading: "2. CSS Flexbox Layout Blueprint",
+            text: "Flexbox se elements ko horizontally aur vertically center karna bohot asaan hota hai. Container me `display: flex; justify-content: center; align-items: center;` use hota hai.",
+            code: `.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}`
+          }
+        ],
+        quiz: {
+          question: "Mobile screen ke hisaab se elements ko wrap aur adjust karne ke liye CSS me kya zaroori hai?",
+          options: [
+            "position: fixed",
+            "flex-wrap: wrap & Media Queries",
+            "float: left",
+            "display: inline"
+          ],
+          correct: 1,
+          explanation: "Sahi Jawab! Flex-wrap aur media queries screen resize hone par content ko clean adapt karati hain."
+        }
+      },
+
+      marketing: {
+        title: "SEO & Digital Growth Architecture — Atifex Notes",
+        lessons: [
+          {
+            heading: "1. Google Search Console & Indexing Secrets",
+            text: "Google par number 1 rank karne ke liye pehle crawl aur index hona zaroori hai. Meta title me primary keyword sabse shuru me rakhein, aur page loading speed 2 second ke andar rakhein.",
+            code: `<!-- High-Conversion SEO Meta -->
+<title>Primary Keyword | Brand Name</title>
+<meta name="description" content="Clear 150-character summary with high search intent.">`
+          },
+          {
+            heading: "2. Search Intent & Backlinks",
+            text: "Log kya search kar rahe hain (Informational, Navigational, Transactional), usi pattern par quality content likhein aur reputable tech platforms se organic links earn karein.",
+            code: `Step 1: Long-Tail Keyword Research
+Step 2: On-Page Optimization (H1, Alt tags, Fast CDN)
+Step 3: Submit Sitemap to Search Console`
+          }
+        ],
+        quiz: {
+          question: "Google bot ko apni website ke sabhi pages aasaani se discover karwane ke liye kya submit kiya jata hai?",
+          options: [
+            "style.css",
+            "sitemap.xml",
+            "index.zip",
+            "license.txt"
+          ],
+          correct: 1,
+          explanation: "Sahi Jawab! sitemap.xml submit karne se Google ke crawlers ko site ke saare active links mil jate hain."
+        }
+      },
+
+      media: {
+        title: "Content Creation & Retention Engineering — Atifex Notes",
+        lessons: [
+          {
+            heading: "1. The 3-Second Hook Architecture",
+            text: "Short-form video ya long tutorial me shuru ke 3 second sabse crucial hote hain. Shuruat me introduction ('Hello dosto') ke bajaye seedhe problem aur transformation dikhayein.",
+            code: `[Hook (0-3s)] -> Seedhe value promise karein
+[Retention (3-30s)] -> Fast visual cuts + b-roll text
+[Payoff] -> Actual solution deliver karein`
+          }
+        ],
+        quiz: {
+          question: "Video content me Click-Through Rate (CTR) sabse zyada kis cheez par depend karta hai?",
+          options: [
+            "Background Music",
+            "Thumbnail & Strong Title Hook",
+            "Video File Resolution",
+            "Publishing Time"
+          ],
+          correct: 1,
+          explanation: "Sahi Jawab! User pehle Thumbnail aur Title dekh kar hi decide karta hai ki click karna hai ya nahi."
+        }
+      },
+
+      ai: {
+        title: "AI Workflows & API Integrations — Atifex Notes",
+        lessons: [
+          {
+            heading: "1. Context Injection & API Prompts",
+            text: "AI models tabhi accurate answer dete hain jab aap unhe Context, Persona, aur Strict Output format specify karein. Automated scripts me REST API endpoints call karke real-time intelligence add ki ja sakti hai.",
+            code: `# Python + Gemini API Example Blueprint
+import google.generativeai as genai
+
+genai.configure(api_key="YOUR_KEY")
+model = genai.GenerativeModel('gemini-pro')
+response = model.generate_content("Explain APIs in 2 lines.")
+print(response.text)`
+          }
+        ],
+        quiz: {
+          question: "AI applications banate waqt API keys ko kahan secure store karna chahiye?",
+          options: [
+            "Public GitHub Repository me",
+            "Environment Variables (.env file)",
+            "HTML code me directly",
+            "CSS file ke andar"
+          ],
+          correct: 1,
+          explanation: "Sahi Jawab! Sensitive API keys ko hamesha Environment Variables (.env) me rakha jata hai taaki koi leak na ho."
+        }
       }
     };
 
+    // Open Modal and render in-built notes & quiz
     function openSkill(id) {
-      const data = skillData[id];
+      const data = courseContent[id];
       if (!data) return;
 
       document.getElementById("modalTitle").innerText = data.title;
-      document.getElementById("modalDesc").innerText = data.desc;
-      
-      const list = document.getElementById("modalList");
-      list.innerHTML = "";
-      data.milestones.forEach(m => {
-        const li = document.createElement("li");
-        li.innerText = m;
-        list.appendChild(li);
+      const body = document.getElementById("modalBody");
+      body.innerHTML = "";
+
+      // Render Lessons
+      data.lessons.forEach(lesson => {
+        const sec = document.createElement("div");
+        sec.className = "lesson-section";
+        sec.innerHTML = `
+          <h4><i class="fa-solid fa-book-open"></i> ${lesson.heading}</h4>
+          <p class="lesson-text">${lesson.text}</p>
+          <pre class="code-block"><code>${escapeHTML(lesson.code)}</code></pre>
+        `;
+        body.appendChild(sec);
       });
 
-      document.getElementById("modalDocsLink").href = data.docs;
+      // Render Quiz
+      if (data.quiz) {
+        const qBox = document.createElement("div");
+        qBox.className = "quiz-box";
+        
+        let optionsHTML = "";
+        data.quiz.options.forEach((opt, idx) => {
+          optionsHTML += `<button class="quiz-opt-btn" onclick="checkQuizAnswer(this, ${idx}, ${data.quiz.correct}, '${escapeQuotes(data.quiz.explanation)}')">${opt}</button>`;
+        });
+
+        qBox.innerHTML = `
+          <div class="quiz-title"><i class="fa-solid fa-circle-question" style="color: var(--primary);"></i> Skill Test: ${data.quiz.question}</div>
+          <div class="quiz-options">${optionsHTML}</div>
+          <div class="quiz-feedback" id="quizFeedback"></div>
+        `;
+        body.appendChild(qBox);
+      }
+
       document.getElementById("skillModal").style.display = "flex";
+    }
+
+    // Quiz Verification Engine
+    function checkQuizAnswer(btn, selectedIdx, correctIdx, explanation) {
+      const parent = btn.parentElement;
+      const allBtns = parent.querySelectorAll(".quiz-opt-btn");
+      allBtns.forEach(b => b.disabled = true);
+
+      const feedback = document.getElementById("quizFeedback");
+      feedback.style.display = "block";
+
+      if (selectedIdx === correctIdx) {
+        btn.classList.add("correct");
+        feedback.style.color = "#4ade80";
+        feedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${explanation}`;
+      } else {
+        btn.classList.add("wrong");
+        allBtns[correctIdx].classList.add("correct");
+        feedback.style.color = "#f87171";
+        feedback.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Galat Jawab! Sahi option green highlight ho gaya hai. ${explanation}`;
+      }
     }
 
     function closeModal() {
@@ -684,6 +951,14 @@
 
     function closeModalOutside(e) {
       if (e.target.id === "skillModal") closeModal();
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function escapeQuotes(str) {
+      return str.replace(/'/g, "\\'");
     }
   </script>
 
